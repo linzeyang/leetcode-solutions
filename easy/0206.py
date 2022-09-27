@@ -13,26 +13,18 @@ class ListNode:
 
 class Solution:
     def reverseList(self, head: Optional[ListNode]) -> Optional[ListNode]:
-        # Very slow:
-        # Runtime: 77 ms, faster than 12.56% of Python3 online submissions for Reverse Linked List.
-        # Memory Usage: 15.4 MB, less than 55.53% of Python3 online submissions for Reverse Linked List.
+        # Slow:
+        # Runtime: 73 ms, faster than 24.32% of Python3 online submissions for Reverse Linked List.
+        # Memory Usage: 15.6 MB, less than 27.64% of Python3 online submissions for Reverse Linked List.
         if head is None:
-            return None
-
-        if head.next is None:
             return head
 
-        pre = head
-        node = head.next
-        nex = node.next
-        head.next = None
+        pre, node = None, head
 
-        while True:
+        while node is not None:
+            nex = node.next
             node.next = pre
-
-            if nex is None:
-                return node
-
             pre = node
             node = nex
-            nex = nex.next
+
+        return pre
