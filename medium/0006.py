@@ -11,12 +11,12 @@ class Solution:
         matrix = [[] for _ in range(numRows)]
         seg = 2 * numRows - 2
 
-        for i in range(len(s)):
-            remain = i % seg
+        for idx, char in enumerate(s):
+            remain = idx % seg
 
             if remain < numRows:
-                matrix[remain].append(s[i])
+                matrix[remain].append(char)
             else:
-                matrix[numRows - remain - 2].append(s[i])
+                matrix[numRows - remain - 2].append(char)
 
-        return "".join("".join(c for c in line) for line in matrix)
+        return "".join("".join(line) for line in matrix)

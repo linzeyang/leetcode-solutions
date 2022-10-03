@@ -8,10 +8,10 @@ class Solution:
         if x < 0:
             return False
 
-        string = list(str(x))
+        string = str(x)
 
-        for i in range(int(len(string) / 2)):
-            if string[i] != string[len(string) - i - 1]:
+        for i in range(len(string) // 2):
+            if string[i] != string[-i - 1]:
                 return False
 
         return True
