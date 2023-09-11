@@ -3,5 +3,4 @@
 
 class Solution:
     def numJewelsInStones(self, jewels: str, stones: str) -> int:
-        ss = set(jewels)
-        return len([_ for _ in stones if _ in ss])
+        return sum(1 for stone in stones if stone in set(jewels))

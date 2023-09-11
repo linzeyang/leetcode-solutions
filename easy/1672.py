@@ -5,4 +5,4 @@ from typing import List
 
 class Solution:
     def maximumWealth(self, accounts: List[List[int]]) -> int:
-        return sum(sorted(accounts, key=sum)[-1])
+        return max(sum(account) for account in accounts)

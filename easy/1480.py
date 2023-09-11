@@ -5,11 +5,12 @@ from typing import List
 
 class Solution:
     def runningSum(self, nums: List[int]) -> List[int]:
-        total = 0
-        out = []
+        if len(nums) == 1:
+            return nums
 
-        for num in nums:
-            total += num
-            out.append(total)
+        out: list[int] = [nums[0]]
+
+        for idx in range(1, len(nums)):
+            out.append(nums[idx] + out[-1])
 
         return out
