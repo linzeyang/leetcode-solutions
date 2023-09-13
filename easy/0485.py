@@ -5,14 +5,17 @@ from typing import List
 
 class Solution:
     def findMaxConsecutiveOnes(self, nums: List[int]) -> int:
-        count = temp = 0
+        maxx = current = 0
 
-        for i in nums:
-            if i == 1:
-                temp += 1
-            elif temp != 0:
-                if temp > count:
-                    count = temp
-                temp = 0
+        for num in nums:
+            if num:
+                current += 1
+            elif not num and current:
+                if current > maxx:
+                    maxx = current
+                current = 0
 
-        return max(count, temp)
+        if current > maxx:
+            maxx = current
+
+        return maxx
