@@ -19,7 +19,7 @@ class Solution:
         len_of_needle = len(needle)
 
         for i in range(len(haystack) - len_of_needle + 1):
-            if needle == haystack[i: i + len_of_needle]:
+            if needle == haystack[i : i + len_of_needle]:
                 return i
 
         return -1

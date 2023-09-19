@@ -9,7 +9,6 @@ class Foo:
         self._state = 0
 
     def first(self, printFirst: "Callable[[], None]") -> None:
-
         # printFirst() outputs "first". Do not change or remove this line.
         printFirst()
         self._state = 1

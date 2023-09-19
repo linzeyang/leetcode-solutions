@@ -9,7 +9,7 @@ class Solution:
         while s:
             for idx in range(len(s) - 1):
                 if s[idx].swapcase() == s[idx + 1]:
-                    s = s.replace(s[idx:idx + 2], "")
+                    s = s.replace(s[idx : idx + 2], "")
                     break
             else:
                 break

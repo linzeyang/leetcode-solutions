@@ -14,7 +14,7 @@ def _do_one_round(ss, k):
 
     i = 0
 
-    while seg := ss[i * k: (i + 1) * k]:
+    while seg := ss[i * k : (i + 1) * k]:
         out.append(sum(int(n) for n in seg))
         i += 1
 

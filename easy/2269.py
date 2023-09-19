@@ -7,7 +7,7 @@ class Solution:
         str_num = str(num)
 
         for idx in range(len(str_num) - k + 1):
-            if (sub := int(str_num[idx: idx + k])) != 0 and num % sub == 0:
+            if (sub := int(str_num[idx : idx + k])) != 0 and num % sub == 0:
                 out += 1
 
         return out

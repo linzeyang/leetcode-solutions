@@ -29,5 +29,5 @@ class Solution:
         return TreeNode(
             val=nums[mid_index],
             left=self.sortedArrayToBST(nums=nums[:mid_index]),
-            right=self.sortedArrayToBST(nums=nums[mid_index + 1:]),
+            right=self.sortedArrayToBST(nums=nums[mid_index + 1 :]),
         )

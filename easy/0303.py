@@ -11,7 +11,7 @@ class NumArray:
     def sumRange(self, left: int, right: int) -> int:
         # Runtime: 1897 ms, faster than 16.16% of Python3 online submissions for Range Sum Query - Immutable.
         # Memory Usage: 17.5 MB, less than 65.34% of Python3 online submissions for Range Sum Query - Immutable.
-        return sum(self._nums[left: right + 1])
+        return sum(self._nums[left : right + 1])
 
 
 # Your NumArray object will be instantiated and called as such:

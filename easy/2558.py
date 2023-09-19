@@ -9,6 +9,6 @@ class Solution:
             gifts = sorted(gifts)
             num = gifts[-1]
             gifts.pop()
-            gifts.append(int(num ** 0.5))
+            gifts.append(int(num**0.5))
 
         return sum(gifts)

@@ -4,14 +4,26 @@ repos:
     hooks:
       - id: check-added-large-files
       - id: check-ast
+      - id: check-case-conflict
+      - id: check-docstring-first
       - id: check-merge-conflict
+      - id: check-toml
       - id: check-yaml
       - id: debug-statements
       - id: detect-private-key
       - id: end-of-file-fixer
       - id: fix-byte-order-marker
       - id: trailing-whitespace
+  - repo: https://github.com/psf/black
+    rev: 23.9.1
+    hooks:
+      - id: black
   - repo: https://github.com/PyCQA/isort
     rev: 5.12.0
     hooks:
       - id: isort
+  - repo: https://github.com/charliermarsh/ruff-pre-commit
+    rev: v0.0.290
+    hooks:
+      - id: ruff
+        args: ["--ignore=E501,E741"]

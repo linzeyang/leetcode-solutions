@@ -8,7 +8,7 @@ class Solution:
 
         while idx < len(s):
             if (idx + 2) < len(s) and s[idx + 2] == "#":
-                out.append(chr(int(s[idx: idx + 2]) + 96))
+                out.append(chr(int(s[idx : idx + 2]) + 96))
                 idx += 3
             else:
                 out.append(chr(int(s[idx]) + 96))

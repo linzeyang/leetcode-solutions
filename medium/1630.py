@@ -7,7 +7,7 @@ class Solution:
     def checkArithmeticSubarrays(
         self, nums: List[int], l: List[int], r: List[int]
     ) -> List[bool]:
-        return [self._check(nums[low: high + 1]) for low, high in zip(l, r)]
+        return [self._check(nums[low : high + 1]) for low, high in zip(l, r)]
 
     def _check(self, nums: list[int]) -> bool:
         if len(nums) < 3:

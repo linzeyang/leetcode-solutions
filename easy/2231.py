@@ -16,10 +16,14 @@ class Solution:
             else:
                 evens_map[idx] = char
 
-        for idx, num in zip(list(odds_map.keys()), sorted(odds_map.values(), reverse=True)):
+        for idx, num in zip(
+            list(odds_map.keys()), sorted(odds_map.values(), reverse=True)
+        ):
             temp[idx] = num
 
-        for idx, num in zip(list(evens_map.keys()), sorted(evens_map.values(), reverse=True)):
+        for idx, num in zip(
+            list(evens_map.keys()), sorted(evens_map.values(), reverse=True)
+        ):
             temp[idx] = num
 
         return int("".join(temp))

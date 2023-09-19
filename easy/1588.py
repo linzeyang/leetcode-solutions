@@ -9,6 +9,6 @@ class Solution:
 
         for i in range(1, len(arr) + 1, 2):
             for j in range(len(arr) - i + 1):
-                out += sum(arr[j: j + i])
+                out += sum(arr[j : j + i])
 
         return out

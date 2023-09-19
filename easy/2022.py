@@ -11,4 +11,4 @@ class Solution:
         if m == 1 == n:
             return [original]
 
-        return [original[n * idx: n * (idx + 1)] for idx in range(m)]
+        return [original[n * idx : n * (idx + 1)] for idx in range(m)]

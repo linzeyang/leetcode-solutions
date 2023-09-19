@@ -13,7 +13,7 @@ class Solution:
             first_group = [new_s[:num_of_first_group]]
 
         groups = first_group + [
-            new_s[num_of_first_group + i * k: num_of_first_group + (i + 1) * k]
+            new_s[num_of_first_group + i * k : num_of_first_group + (i + 1) * k]
             for i in range(num_of_groups)
         ]
 
