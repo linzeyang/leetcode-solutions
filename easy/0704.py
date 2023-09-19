@@ -5,25 +5,19 @@ from typing import List
 
 class Solution:
     def search(self, nums: List[int], target: int) -> int:
-        length = len(nums)
+        return bin_search(nums, target, 0, len(nums) - 1)
 
-        if length == 0:
-            return -1
 
-        if length == 1:
-            return 0 if nums[0] == target else -1
+def bin_search(nums: list[int], target: int, left: int, right: int) -> int:
+    if not nums or left > right:
+        return -1
 
-        mid = length // 2
+    mid = (left + right) // 2
 
-        if nums[mid] == target:
-            return mid
+    if nums[mid] == target:
+        return mid
 
-        if nums[mid] > target:
-            return self.search(nums[:mid], target)
+    if nums[mid] > target:
+        return bin_search(nums, target, left, mid - 1)
 
-        res = self.search(nums[mid + 1:], target)
-
-        if res == -1:
-            return -1
-
-        return mid + 1 + res
+    return bin_search(nums, target, mid + 1, right)

@@ -1,6 +1,4 @@
-"""
-374. Guess Number Higher or Lower
-"""
+"""374. Guess Number Higher or Lower"""
 
 
 # The guess API is already defined for you.
@@ -14,28 +12,17 @@ def guess(num: int) -> int:
 
 class Solution:
     def guessNumber(self, n: int) -> int:
-        # Very slow:
-        # Runtime: 68 ms, faster than 5.25% of Python3 online submissions for Guess Number Higher or Lower.
-        # Memory Usage: 14 MB, less than 15.99% of Python3 online submissions for Guess Number Higher or
-        if n == 1:
-            return 1
+        start, end = 1, n
 
-        start, i, end = 1, n // 2, n
+        while start < end:
+            pick = (start + end) // 2
 
-        while (r := guess(num=i)) != 0:
-            if r == -1:
-                end = i
-                new_i = (start + i) // 2
-                if new_i == i:
-                    i = new_i - 1
-                else:
-                    i = new_i
+            if (result := guess(pick)) == 0:
+                return pick
+
+            if result == -1:
+                end = pick - 1
             else:
-                start = i
-                new_i = (i + end) // 2
-                if new_i == i:
-                    i = new_i + 1
-                else:
-                    i = new_i
+                start = pick + 1
 
-        return i
+        return start
