@@ -1,28 +1,22 @@
-"""
-69. Sqrt(x)
-"""
+"""69. Sqrt(x)"""
 
 
 class Solution:
     def mySqrt(self, x: int) -> int:
-        # Very slow:
-        # Runtime: 5064 ms, faster than 5.54% of Python3 online submissions for Sqrt(x).
-        # Memory Usage: 13.8 MB, less than 56.60% of Python3 online submissions for Sqrt(x).
-
-        if x in {0, 1}:
+        if x < 2:
             return x
 
-        num = x // 2
+        left, right = 1, x
 
-        while (numsqr := num**2) >= x:
-            if numsqr == x:
-                return num
-            num //= 2
+        while right - left > 1:
+            mid = (left + right) // 2
 
-        i = 2 * num + 1
+            if mid**2 == x:
+                return mid
 
-        while i > 0:
-            i -= 1
+            if mid**2 > x:
+                right = mid
+            else:
+                left = mid
 
-            if i**2 <= x:
-                return i
+        return left
