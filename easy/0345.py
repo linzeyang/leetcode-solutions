@@ -1,30 +1,26 @@
-"""
-345. Reverse Vowels of a String
-"""
+"""345. Reverse Vowels of a String"""
 
 
 class Solution:
     def reverseVowels(self, s: str) -> str:
-        # Runtime: 119 ms, faster than 29.77% of Python3 online submissions for Reverse Vowels of a String.
-        # Memory Usage: 15 MB, less than 57.69% of Python3 online submissions for Reverse Vowels of a String.
-        vowels = frozenset("AEIOUaeiou")
+        vowels = "aeiouAEIOU"
         lis = list(s)
-        i, j = 0, len(lis) - 1
+        left, right = 0, len(s) - 1
 
-        while i < j:
-            if lis[i] not in vowels:
-                i += 1
+        while left < right:
+            if lis[left] not in vowels:
+                left += 1
                 continue
 
-            while i < j:
-                if lis[j] not in vowels:
-                    j -= 1
+            while left < right:
+                if lis[right] not in vowels:
+                    right -= 1
                     continue
 
-                lis[i], lis[j] = lis[j], lis[i]
+                lis[left], lis[right] = lis[right], lis[left]
                 break
 
-            i += 1
-            j -= 1
+            left += 1
+            right -= 1
 
         return "".join(lis)
