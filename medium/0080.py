@@ -1,28 +1,23 @@
 """80. Remove Duplicates from Sorted Array II"""
+
 from typing import List
 
 
 class Solution:
     def removeDuplicates(self, nums: List[int]) -> int:
-        # very slow:
-        # Runtime: 124 ms, faster than 17.10% of Python3 online submissions for Remove Duplicates from Sorted Array II.
-        # Memory Usage: 13.8 MB, less than 74.16% of Python3 online submissions for Remove Duplicates from Sorted Array II.
-        if len(nums) < 3:
-            return len(nums)
+        slow = fast = count = 0
 
-        base = nums[0]
-        i = 1
+        while fast < len(nums) - count:
+            if nums[fast] != nums[slow]:
+                slow = fast
+                continue
 
-        while i < len(nums):
-            try:
-                num = nums[i]
-            except IndexError:
-                break
+            if fast - slow >= 2:
+                count += 1
 
-            if i >= 2 and num == base and num == nums[i - 2]:
-                nums.pop(i)
+                for idx in range(fast, len(nums) - 1):
+                    nums[idx], nums[idx + 1] = nums[idx + 1], nums[idx]
             else:
-                base = num
-                i += 1
+                fast += 1
 
-        return len(nums)
+        return fast

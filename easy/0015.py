@@ -5,23 +5,23 @@ from typing import List
 
 class Solution:
     def threeSum(self, nums: List[int]) -> List[List[int]]:
-        out: set[tuple[int, int, int]] = set()
-
         nums.sort()
 
+        out: set[tuple[int, int, int]] = set()
+
         for idx in range(len(nums) - 2):
-            num_a = nums[idx]
+            target = -nums[idx]
 
-            head = idx + 1
-            tail = len(nums) - 1
+            jdx, kdx = idx + 1, len(nums) - 1
 
-            while head < tail:
-                if nums[head] + nums[tail] == -num_a:
-                    out.add((num_a, nums[head], nums[tail]))
-                    tail -= 1
-                elif nums[head] + nums[tail] > -num_a:
-                    tail -= 1
+            while jdx < kdx:
+                if nums[jdx] + nums[kdx] < target:
+                    jdx += 1
+                elif nums[jdx] + nums[kdx] > target:
+                    kdx -= 1
                 else:
-                    head += 1
+                    out.add((nums[idx], nums[jdx], nums[kdx]))
+                    jdx += 1
+                    kdx -= 1
 
-        return list(out)
+        return [list(tup) for tup in out]
