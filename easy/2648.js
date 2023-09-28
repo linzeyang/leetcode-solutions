@@ -3,19 +3,19 @@
 /**
  * @return {Generator<number>}
  */
-var fibGenerator = function*() {
-    yield 0;
-    yield 1;
+var fibGenerator = function* () {
+  yield 0;
+  yield 1;
 
-    let a = 0;
-    let b = 1;
+  let a = 0;
+  let b = 1;
 
-    while (true) {
-        yield a + b;
-        let temp = a;
-        a = b;
-        b = temp + a;
-    }
+  while (true) {
+    yield a + b;
+    let temp = a;
+    a = b;
+    b = temp + a;
+  }
 };
 
 /**

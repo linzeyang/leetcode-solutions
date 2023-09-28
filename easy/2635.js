@@ -7,11 +7,11 @@
  */
 
 var map = function (arr, fn) {
-    const len = arr.length;
-    const mappedArr = new Array(len);
+  const len = arr.length;
+  const mappedArr = new Array(len);
 
-    for (let i = 0; i < len; i++) {
-        mappedArr[i] = fn(arr[i], i);
-    }
-    return mappedArr;
+  for (let i = 0; i < len; i++) {
+    mappedArr[i] = fn(arr[i], i);
+  }
+  return mappedArr;
 };

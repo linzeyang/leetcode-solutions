@@ -7,13 +7,13 @@
  */
 
 var filter = function (arr, fn) {
-    const len = arr.length;
-    const newArray = [];
+  const len = arr.length;
+  const newArray = [];
 
-    for (let i = 0; i < len; i++) {
-        if (fn(arr[i], i)) {
-            newArray.push(arr[i]);
-        }
+  for (let i = 0; i < len; i++) {
+    if (fn(arr[i], i)) {
+      newArray.push(arr[i]);
     }
-    return newArray;
+  }
+  return newArray;
 };

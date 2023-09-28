@@ -6,16 +6,15 @@
  */
 
 var compose = function (functions) {
-    var fun = function (num) {
-
-        for (let i = 0; i < functions.length; i++) {
-            num = functions[functions.length - 1 - i](num)
-        }
-
-        return num;
+  var fun = function (num) {
+    for (let i = 0; i < functions.length; i++) {
+      num = functions[functions.length - 1 - i](num);
     }
 
-    return fun;
+    return num;
+  };
+
+  return fun;
 };
 
 /**
