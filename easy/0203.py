@@ -1,6 +1,5 @@
-"""
-203. Remove Linked List Elements
-"""
+"""203. Remove Linked List Elements"""
+
 from typing import Optional
 
 
@@ -30,41 +29,20 @@ class SolutionRecursion:
 # Using iteration
 class Solution:
     def removeElements(self, head: Optional[ListNode], val: int) -> Optional[ListNode]:
-        # Very slow:
-        # Runtime: 148 ms, faster than 12.35% of Python3 online submissions for Remove Linked List Elements.
-        # Memory Usage: 17.8 MB, less than 39.03% of Python3 online submissions for Remove Linked List
+        while head and head.val == val:
+            head = head.next
+
         if not head:
-            return head
+            return
 
-        if head.val == val:
-            node = head.next
-            while True:
-                if node is None:
-                    return
-                if node.val != val:
-                    head = node
-                    break
-                node = node.next
+        prev, current = head, head.next
 
-        node = head
+        while current:
+            if current.val == val:
+                prev.next = current.next
+            else:
+                prev = current
 
-        while True:
-            if node.next is None:
-                return head
-            if node.next.val != val:
-                node = node.next
-                continue
+            current = current.next
 
-            nex = node.next
-
-            while True:
-                if nex.next is None:
-                    node.next = None
-                    return head
-                if nex.next.val == val:
-                    nex = nex.next
-                    continue
-
-                node.next = nex.next
-                node = nex.next
-                break
+        return head

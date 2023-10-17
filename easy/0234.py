@@ -1,6 +1,5 @@
-"""
-234. Palindrome Linked List
-"""
+"""234. Palindrome Linked List"""
+
 from typing import Optional
 
 
@@ -13,18 +12,18 @@ class ListNode:
 
 class Solution:
     def isPalindrome(self, head: Optional[ListNode]) -> bool:
-        # Very slow:
-        # Runtime: 2400 ms, faster than 5.01% of Python3 online submissions for Palindrome Linked List.
-        # Memory Usage: 46.8 MB, less than 37.45% of Python3 online submissions for Palindrome Linked List.
-        lis = []
+        if not head:
+            return True
+
+        vals = []
         node = head
 
-        while node is not None:
-            lis.append(node.val)
+        while node:
+            vals.append(node.val)
             node = node.next
 
-        for i in range(len(lis) // 2):
-            if lis[i] != lis[-i - 1]:
+        for idx in range(len(vals) // 2):
+            if vals[idx] != vals[-idx - 1]:
                 return False
 
         return True

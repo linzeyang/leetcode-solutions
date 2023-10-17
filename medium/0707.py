@@ -1,100 +1,81 @@
 """707. Design Linked List"""
 
-from dataclasses import dataclass
+from typing import Optional
 
 
-@dataclass
 class Node:
-    val: int
-    nex = None
+    def __init__(self, val: int, next_node: Optional["Node"] = None) -> None:
+        self.val = val
+        self.next = next_node
 
 
 class MyLinkedList:
     def __init__(self):
-        self._head = self._tail = None
-        self._length = 0
+        self.head: Optional[Node] = None
 
     def get(self, index: int) -> int:
-        if index >= self._length:
+        if not self.head:
             return -1
 
-        if index == 0:
-            return self._head.val
-
-        if index == self._length - 1:
-            return self._tail.val
-
-        node = self._head
+        node = self.head
 
         for _ in range(index):
-            node = node.nex
+            if not node.next:
+                return -1
+
+            node = node.next
 
         return node.val
 
     def addAtHead(self, val: int) -> None:
-        if self._head is None:
-            self._head = self._tail = Node(val)
-        else:
-            node = Node(val)
-            node.nex = self._head
-            self._head = node
-        self._length += 1
+        self.head = Node(val, self.head)
 
     def addAtTail(self, val: int) -> None:
-        if self._tail is None:
-            self._head = self._tail = Node(val)
-        else:
-            node = Node(val)
-            self._tail.nex = node
-            self._tail = node
-        self._length += 1
-
-    def addAtIndex(self, index: int, val: int) -> None:
-        if index > self._length:
+        if not self.head:
+            self.head = Node(val)
             return
 
+        node = self.head
+
+        while node.next:
+            node = node.next
+
+        node.next = Node(val)
+
+    def addAtIndex(self, index: int, val: int) -> None:
         if index == 0:
             self.addAtHead(val)
             return
 
-        if index == self._length:
-            self.addAtTail(val)
-            return
+        node = self.head
 
-        prev = self._head
+        for _ in range(index):
+            if not node:
+                return
 
-        for _ in range(index - 1):
-            prev = prev.nex
+            prev = node
+            node = node.next
 
-        node = Node(val)
-        node.nex = prev.nex
-        prev.nex = node
-        self._length += 1
+        prev.next = Node(val, node)
 
     def deleteAtIndex(self, index: int) -> None:
-        if index >= self._length:
+        if not self.head:
             return
 
-        if self._length == 1 and index == 0:
-            self._head = self._tail = None
-        elif index == 0:
-            node = self._head
-            self._head = node.nex
-            node.nex = None
-        else:
-            prev = self._head
+        if index == 0:
+            self.head = self.head.next
+            return
 
-            for _ in range(index - 1):
-                prev = prev.nex
+        node = self.head
 
-            node = prev.nex
-            prev.nex = node.nex
-            node.nex = None
+        for _ in range(index):
+            if not node.next:
+                return
 
-            if index == self._length - 1:
-                self._tail = prev
+            prev = node
+            node = node.next
 
-        self._length -= 1
+        prev.next = node.next
 
 
 # Your MyLinkedList object will be instantiated and called as such:
