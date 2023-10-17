@@ -34,7 +34,7 @@ CODES = [
 
 class Solution:
     def uniqueMorseRepresentations(self, words: List[str]) -> int:
-        return len(set(self.transform(word) for word in words))
+        return len({self.transform(word) for word in words})
 
     def transform(self, word: str) -> str:
         return "".join(CODES[ord(char) - ord("a")] for char in word)

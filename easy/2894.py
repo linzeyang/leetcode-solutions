@@ -1,5 +1,6 @@
 """2894. Divisible and Non-divisible Sums Difference"""
 
+
 class Solution:
     def differenceOfSums(self, n: int, m: int) -> int:
         # return sum(range(1, n+1)) - 2 * sum(range(0, n + 1, m))

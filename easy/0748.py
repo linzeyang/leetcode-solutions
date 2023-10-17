@@ -6,7 +6,7 @@ from typing import List
 
 class Solution:
     def shortestCompletingWord(self, licensePlate: str, words: List[str]) -> str:
-        plate_set = set(char.lower() for char in licensePlate if char.isalpha())
+        plate_set = {char.lower() for char in licensePlate if char.isalpha()}
         plate_counter = Counter(char.lower() for char in licensePlate if char.isalpha())
 
         completing_word = ""

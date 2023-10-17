@@ -8,4 +8,4 @@ class Solution:
     def singleNumber(self, nums: List[int]) -> List[int]:
         cc = Counter(nums)
 
-        return list(num for num, count in cc.items() if count == 1)
+        return [num for num, count in cc.items() if count == 1]
