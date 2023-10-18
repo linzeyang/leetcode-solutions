@@ -1,7 +1,5 @@
-"""
-19. Remove Nth Node From End of List
-"""
-from collections import deque
+"""19. Remove Nth Node From End of List"""
+
 from typing import Optional
 
 
@@ -14,27 +12,21 @@ class ListNode:
 
 class Solution:
     def removeNthFromEnd(self, head: Optional[ListNode], n: int) -> Optional[ListNode]:
-        # Very slow:
-        # Runtime: 73 ms, faster than 10.14% of Python3 online submissions for Remove Nth Node From End of List.
-        # Memory Usage: 13.9 MB, less than 70.36% of Python3 online submissions for Remove Nth Node From End of List.
-        if head is None or head.next is None:
-            return
+        slow = fast = head
 
-        queue = deque(maxlen=n + 1)
-        node = head
+        for _ in range(n - 1):
+            fast = fast.next
 
-        while node is not None:
-            queue.append(node)
-            node = node.next
+        if not fast.next:
+            return head.next
 
-        if n == 1:
-            queue[-2].next = None
-            return head
+        prev, slow, fast = slow, slow.next, fast.next
 
-        if len(queue) < n + 1:
-            queue[0].next = None
-            return queue[1]
+        while fast.next:
+            fast = fast.next
+            slow = slow.next
+            prev = prev.next
 
-        queue[0].next = queue[2]
-        queue[1].next = None
+        prev.next = slow.next
+
         return head

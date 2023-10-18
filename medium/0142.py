@@ -1,4 +1,4 @@
-"""141. Linked List Cycle"""
+"""142. Linked List Cycle II"""
 
 from typing import Optional
 
@@ -11,7 +11,7 @@ class ListNode:
 
 
 class Solution:
-    def hasCycle(self, head: Optional[ListNode]) -> bool:
+    def detectCycle(self, head: Optional[ListNode]) -> Optional[ListNode]:
         node_set: set[ListNode] = set()
         node = head
 
@@ -20,6 +20,4 @@ class Solution:
                 node_set.add(node)
                 node = node.next
             else:
-                return True
-
-        return False
+                return node
