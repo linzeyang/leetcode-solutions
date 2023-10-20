@@ -1,29 +1,21 @@
-"""
-20. Valid Parentheses
-"""
+"""20. Valid Parentheses"""
 
 
 class Solution:
     def isValid(self, s: str) -> bool:
-        opened_stack = []
+        stack: list[str] = []
+        MATCHING = {(")", "("), ("}", "{"), ("]", "[")}
 
         for char in s:
-            if char in OPENING:
-                opened_stack.append(char)
+            if char in "({[":
+                stack.append(char)
             else:
-                try:
-                    last_opened = opened_stack.pop()
-                except IndexError:
-                    return False
-                if MAPPING[char] != last_opened:
+                if not stack:
                     return False
 
-        return len(opened_stack) == 0
+                if (char, stack[-1]) in MATCHING:
+                    stack.pop()
+                else:
+                    return False
 
-
-MAPPING = {
-    "}": "{",
-    "]": "[",
-    ")": "(",
-}
-OPENING = {"(", "[", "{"}
+        return not stack
