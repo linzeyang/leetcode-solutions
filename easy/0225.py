@@ -1,39 +1,40 @@
-"""
-225. Implement Stack using Queues
-"""
+"""225. Implement Stack using Queues"""
 
-from collections import deque
+from queue import Queue
 
 
-# Runtime: 50 ms, faster than 46.61% of Python3 online submissions for Implement Stack using Queues.
-# Memory Usage: 14 MB, less than 25.81% of Python3 online submissions for Implement Stack using Queues.
 class MyStack:
     def __init__(self):
-        self._main_queue = deque()
-        self._back_queue = deque()
+        self.inner_queue = Queue()
+        self.outer_queue = Queue()
 
     def push(self, x: int) -> None:
-        if self._main_queue:
-            self._back_queue.append(self._main_queue.popleft())
+        if not self.outer_queue.empty():
+            num = self.outer_queue.get()
+            self.inner_queue.put(num)
 
-        self._main_queue.append(x)
-
-        for _ in range(len(self._back_queue) - 1):
-            self._back_queue.append(self._back_queue.popleft())
+        self.outer_queue.put(x)
 
     def pop(self) -> int:
-        val = self._main_queue.popleft()
+        num = self.outer_queue.get()
 
-        if self._back_queue:
-            self._main_queue.append(self._back_queue.popleft())
+        if not self.inner_queue.empty():
+            for _ in range(self.inner_queue.qsize() - 1):
+                inner = self.inner_queue.get()
+                self.inner_queue.put(inner)
 
-        return val
+            self.outer_queue.put(self.inner_queue.get())
+
+        return num
 
     def top(self) -> int:
-        return self._main_queue[0]
+        num = self.outer_queue.get()
+        self.outer_queue.put(num)
+
+        return num
 
     def empty(self) -> bool:
-        return not self._main_queue and not self._back_queue
+        return self.inner_queue.empty() and self.outer_queue.empty()
 
 
 # Your MyStack object will be instantiated and called as such:

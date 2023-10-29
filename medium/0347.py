@@ -1,11 +1,22 @@
 """347. Top K Frequent Elements"""
 
-from collections import Counter
+import heapq
 from typing import List
 
 
 class Solution:
     def topKFrequent(self, nums: List[int], k: int) -> List[int]:
-        cc = Counter(nums)
+        freq: dict[int, int] = {}
 
-        return sorted(cc.keys(), key=lambda num: cc[num], reverse=True)[:k]
+        for num in nums:
+            if num not in freq:
+                freq[num] = 1
+            else:
+                freq[num] += 1
+
+        queue: list[int] = []
+
+        for num, fre in freq.items():
+            heapq.heappush(queue, (-fre, num))
+
+        return [heapq.heappop(queue)[1] for _ in range(k)]
