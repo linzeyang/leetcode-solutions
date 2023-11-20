@@ -1,6 +1,5 @@
-"""
-145. Binary Tree Postorder Traversal
-"""
+"""145. Binary Tree Postorder Traversal"""
+
 from typing import List, Optional
 
 
@@ -14,9 +13,6 @@ class TreeNode:
 
 class Solution:
     def postorderTraversal(self, root: Optional[TreeNode]) -> List[int]:
-        # Very slow:
-        # Runtime: 67 ms, faster than 6.95% of Python3 online submissions for Binary Tree Postorder Traversal.
-        # Memory Usage: 13.8 MB, less than 96.76% of Python3 online submissions for Binary Tree Postorder Traversal.
         if root is None:
             return []
 

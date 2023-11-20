@@ -1,6 +1,5 @@
-"""
-144. Binary Tree Preorder Traversal
-"""
+"""144. Binary Tree Preorder Traversal"""
+
 from typing import List, Optional
 
 
@@ -14,9 +13,6 @@ class TreeNode:
 
 class Solution:
     def preorderTraversal(self, root: Optional[TreeNode]) -> List[int]:
-        # Very slow:
-        # Runtime: 62 ms, faster than 14.78% of Python3 online submissions for Binary Tree Preorder Traversal.
-        # Memory Usage: 13.9 MB, less than 60.09% of Python3 online submissions for Binary Tree Preorder Traversal.
         if root is None:
             return []
 
