@@ -1,6 +1,5 @@
-"""
-112. Path Sum
-"""
+"""112. Path Sum"""
+
 from typing import Optional
 
 
@@ -14,13 +13,10 @@ class TreeNode:
 
 class Solution:
     def hasPathSum(self, root: Optional[TreeNode], targetSum: int) -> bool:
-        # Very slow:
-        # Runtime: 102 ms, faster than 5.42% of Python3 online submissions for Path Sum.
-        # Memory Usage: 15.2 MB, less than 15.84% of Python3 online submissions for Path Sum.
         if root is None:
             return False
 
-        if root.left is None and root.right is None:
+        if not root.left and not root.right:
             return root.val == targetSum
 
         new_target = targetSum - root.val

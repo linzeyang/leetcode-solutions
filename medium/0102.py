@@ -13,26 +13,27 @@ class TreeNode:
 
 class Solution:
     def levelOrder(self, root: Optional[TreeNode]) -> List[List[int]]:
-        # Runtime beats 30.81%
-        # Memory beats 83.94%
-        if root is None:
+        if not root:
             return []
 
-        out = []
-        next_level = [root]
+        out: list[list[int]] = [[root.val]]
+        next_level: list[TreeNode] = []
+
+        if root.left:
+            next_level.append(root.left)
+        if root.right:
+            next_level.append(root.right)
 
         while next_level:
-            new_next_level = []
-            sub_out = []
+            out.append([node.val for node in next_level])
+            temp_next_level: list[TreeNode] = []
 
             for node in next_level:
-                sub_out.append(node.val)
-                if node.left is not None:
-                    new_next_level.append(node.left)
-                if node.right is not None:
-                    new_next_level.append(node.right)
+                if node.left:
+                    temp_next_level.append(node.left)
+                if node.right:
+                    temp_next_level.append(node.right)
 
-            out.append(sub_out)
-            next_level = new_next_level
+            next_level = temp_next_level
 
         return out

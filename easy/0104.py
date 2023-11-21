@@ -1,6 +1,5 @@
-"""
-104. Maximum Depth of Binary Tree
-"""
+"""104. Maximum Depth of Binary Tree"""
+
 from typing import Optional
 
 
@@ -14,10 +13,35 @@ class TreeNode:
 
 class Solution:
     def maxDepth(self, root: Optional[TreeNode]) -> int:
-        # Slow:
-        # Runtime: 77 ms, faster than 27.11% of Python3 online submissions for Maximum Depth of Binary Tree.
-        # Memory Usage: 16.4 MB, less than 23.59% of Python3 online submissions for Maximum Depth of Binary Tree.
         if root is None:
             return 0
 
         return 1 + max(self.maxDepth(root.left), self.maxDepth(root.right))
+
+
+class Solution2:
+    def maxDepth(self, root: Optional[TreeNode]) -> int:
+        if not root:
+            return 0
+
+        out = 1
+        next_level: list[TreeNode] = []
+
+        if root.left:
+            next_level.append(root.left)
+        if root.right:
+            next_level.append(root.right)
+
+        while next_level:
+            out += 1
+            temp: list[TreeNode] = []
+
+            for node in next_level:
+                if node.left:
+                    temp.append(node.left)
+                if node.right:
+                    temp.append(node.right)
+
+            next_level = temp
+
+        return out
