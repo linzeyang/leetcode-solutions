@@ -8,16 +8,12 @@ class Solution:
         g.sort()
         s.sort()
 
-        count = 0
-        idx = 0
-        length = len(g)
+        idx = jdx = out = 0
 
-        for coo in s:
-            if idx < length:
-                if coo >= g[idx]:
-                    count += 1
-                    idx += 1
-            else:
-                break
+        while idx < len(g) and jdx < len(s):
+            if s[jdx] >= g[idx]:
+                out += 1
+                idx += 1
+            jdx += 1
 
-        return count
+        return out
