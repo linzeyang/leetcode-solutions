@@ -5,17 +5,16 @@ from typing import List
 
 class Solution:
     def maximumUnits(self, boxTypes: List[List[int]], truckSize: int) -> int:
-        weight = 0
-        remaining = truckSize
+        boxTypes.sort(key=lambda lis: lis[1], reverse=True)
 
-        ll = sorted(boxTypes, key=lambda lis: lis[1], reverse=True)
+        num_all = unit_all = 0
 
-        for x, y in ll:
-            if remaining <= x:
-                weight += remaining * y
-                break
-            else:
-                weight += x * y
-                remaining -= x
+        for num, capacity in boxTypes:
+            if num >= truckSize - num_all:
+                unit_all += (truckSize - num_all) * capacity
+                return unit_all
 
-        return weight
+            num_all += num
+            unit_all += num * capacity
+
+        return unit_all
