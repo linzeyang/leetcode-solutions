@@ -3,4 +3,13 @@
 
 class Solution:
     def reverseBits(self, n: int) -> int:
-        return int(f"{f'{n:b}':0>32}"[::-1], base=2)
+        out = 0
+
+        for _ in range(32):
+            if n > 0:
+                n, mod = divmod(n, 2)
+                out = (out << 1) + mod
+            else:
+                out <<= 1
+
+        return out

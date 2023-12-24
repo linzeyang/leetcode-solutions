@@ -5,15 +5,14 @@ from typing import List
 
 class Solution:
     def singleNumber(self, nums: List[int]) -> int:
-        sin = set()
-        mul = set()
+        temp = {}
 
         for num in nums:
-            if num not in mul:
-                if num not in sin:
-                    sin.add(num)
-                else:
-                    sin.remove(num)
-                    mul.add(num)
+            if num not in temp:
+                temp[num] = 1
+            elif temp[num] == 1:
+                temp[num] = 2
+            else:
+                del temp[num]
 
-        return next(iter(sin))
+        return next(iter(temp.keys()))

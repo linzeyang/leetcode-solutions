@@ -1,11 +1,16 @@
 """260. Single Number III"""
 
-from collections import Counter
 from typing import List
 
 
 class Solution:
     def singleNumber(self, nums: List[int]) -> List[int]:
-        cc = Counter(nums)
+        temp: set[int] = set()
 
-        return [num for num, count in cc.items() if count == 1]
+        for num in nums:
+            if num not in temp:
+                temp.add(num)
+            else:
+                temp.remove(num)
+
+        return list(temp)
