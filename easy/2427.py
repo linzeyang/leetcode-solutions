@@ -3,12 +3,18 @@
 
 class Solution:
     def commonFactors(self, a: int, b: int) -> int:
-        count = 1
-        i = 2
+        oria, orib = a, b
 
-        while i <= min(a, b):
-            if a % i == 0 and b % i == 0:
-                count += 1
-            i += 1
+        while b:
+            a, b = b, a % b
 
-        return count
+        if a == 1:
+            return 1
+
+        out = 2
+
+        for num in range(2, a):
+            if not oria % num and not orib % num:
+                out += 1
+
+        return out
