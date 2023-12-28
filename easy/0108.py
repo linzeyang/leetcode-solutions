@@ -1,6 +1,5 @@
-"""
-108. Convert Sorted Array to Binary Search Tree
-"""
+"""108. Convert Sorted Array to Binary Search Tree"""
+
 from typing import List, Optional
 
 
@@ -14,20 +13,21 @@ class TreeNode:
 
 class Solution:
     def sortedArrayToBST(self, nums: List[int]) -> Optional[TreeNode]:
-        # Very slow:
-        # Runtime: 162 ms, faster than 7.97% of Python3 online submissions for Convert Sorted Array to Binary Search Tree.
-        # Memory Usage: 15.7 MB, less than 31.52% of Python3 online submissions for Convert Sorted Array to Binary Search Tree.
-        length = len(nums)
-        if length == 1:
-            return TreeNode(val=nums[0])
+        return self._array_to_bst(nums, 0, len(nums) - 1)
 
-        if length == 2:
-            return TreeNode(val=nums[1], left=TreeNode(val=nums[0]))
+    def _array_to_bst(
+        self, nums: list[int], start: int, end: int
+    ) -> Optional[TreeNode]:
+        if start > end:
+            return
 
-        mid_index = length // 2
+        if start == end:
+            return TreeNode(val=nums[start])
 
-        return TreeNode(
-            val=nums[mid_index],
-            left=self.sortedArrayToBST(nums=nums[:mid_index]),
-            right=self.sortedArrayToBST(nums=nums[mid_index + 1 :]),
-        )
+        idx = (start + end) // 2
+        new_root = TreeNode(val=nums[idx])
+
+        new_root.left = self._array_to_bst(nums, start, idx - 1)
+        new_root.right = self._array_to_bst(nums, idx + 1, end)
+
+        return new_root
