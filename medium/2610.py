@@ -1,25 +1,25 @@
 """2610. Convert an Array Into a 2D Array With Conditions"""
 
-from collections import Counter
 from typing import List
 
 
 class Solution:
     def findMatrix(self, nums: List[int]) -> List[List[int]]:
+        mapping: dict[int, int] = {}
+
         out: list[list[int]] = []
 
-        cc = Counter(nums)
+        for num in nums:
+            if num not in mapping:
+                count = 1
+            else:
+                count = mapping[num] + 1
 
-        while cc:
-            temp = []
+            mapping[num] = count
 
-            for k, v in list(cc.items()):
-                temp.append(k)
-                cc[k] = v - 1
-
-                if v == 1:
-                    cc.pop(k)
-
-            out.append(temp)
+            if len(out) < count:
+                out.append([num])
+            else:
+                out[count - 1].append(num)
 
         return out
