@@ -14,26 +14,19 @@ class Solution:
     def insertGreatestCommonDivisors(
         self, head: Optional[ListNode]
     ) -> Optional[ListNode]:
-        if not head:
+        if not head or not head.next:
             return head
 
-        curr = head
+        node = head
 
-        while nex := curr.next:
-            curr.next = ListNode(val=self._gcd(curr.val, nex.val), next=nex)
-            curr = nex
+        while nex := node.next:
+            node.next = ListNode(val=self._get_gcd(node.val, nex.val), next=nex)
+            node = nex
 
         return head
 
-    @staticmethod
-    def _gcd(num1: int, num2: int) -> int:
-        if num1 < num2:
-            num1, num2 = num2, num1
+    def _get_gcd(self, val1, val2):
+        while val2:
+            val1, val2 = val2, val1 % val2
 
-        while num1 % num2:
-            num1, num2 = num2, num1 - num2
-
-            if num1 < num2:
-                num1, num2 = num2, num1
-
-        return num2
+        return val1
