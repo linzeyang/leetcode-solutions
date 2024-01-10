@@ -1,4 +1,4 @@
-"""10032. Minimum Number of Operations to Make Array XOR Equal to K"""
+"""2997. Minimum Number of Operations to Make Array XOR Equal to K"""
 
 from typing import List
 

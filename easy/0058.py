@@ -1,23 +1,19 @@
-"""
-58. Length of Last Word
-"""
+"""58. Length of Last Word"""
 
 
 class Solution:
     def lengthOfLastWord(self, s: str) -> int:
-        # This may be faster than the other solution
-        # return len(s.split()[-1])
+        out = 0
 
-        index = len(s) - 1
-        counter = 0
+        for idx in range(1, len(s) + 1):
+            if s[-idx] != " ":
+                out += 1
+            elif s[-idx] == " " and out:
+                break
 
-        while index >= 0:
-            if s[index] == " ":
-                if counter:
-                    break
-                index -= 1
-            else:
-                counter += 1
-                index -= 1
+        return out
 
-        return counter
+
+class Solution2:
+    def lengthOfLastWord(self, s: str) -> int:
+        return len(s.split()[-1])
