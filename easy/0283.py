@@ -8,13 +8,10 @@ class Solution:
         """
         Do not return anything, modify nums in-place instead.
         """
-        fast = slow = 0
+        target_idx = 0
 
-        while fast < len(nums):
-            if nums[fast] == 0:
-                fast += 1
-            else:
-                if fast != slow:
-                    nums[fast], nums[slow] = nums[slow], nums[fast]
-                fast += 1
-                slow += 1
+        for idx in range(len(nums)):
+            if nums[idx]:
+                if idx != target_idx:
+                    nums[idx], nums[target_idx] = nums[target_idx], nums[idx]
+                target_idx += 1

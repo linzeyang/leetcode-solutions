@@ -8,11 +8,10 @@ class Solution:
         sign = 1
 
         for num in nums:
-            if num > 0:
-                sign *= 1
-            elif num < 0:
-                sign *= -1
-            else:
+            if not num:
                 return 0
+
+            if num < 0:
+                sign = -sign
 
         return sign
