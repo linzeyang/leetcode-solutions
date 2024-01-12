@@ -13,26 +13,17 @@ class TreeNode:
 
 class Solution:
     def rangeSumBST(self, root: Optional[TreeNode], low: int, high: int) -> int:
-        if root is None:
+        if not root:
             return 0
 
-        if low == root.val == high:
-            return root.val
+        if root.val < low:
+            return self.rangeSumBST(root.right, low, high)
 
-        if low == root.val:
-            return low + self.rangeSumBST(root.right, low=low, high=high)
-
-        if high == root.val:
-            return high + self.rangeSumBST(root.left, low=low, high=high)
-
-        if low > root.val:
-            return self.rangeSumBST(root.right, low=low, high=high)
-
-        if high < root.val:
-            return self.rangeSumBST(root.left, low=low, high=high)
+        if root.val > high:
+            return self.rangeSumBST(root.left, low, high)
 
         return (
-            self.rangeSumBST(root.left, low=low, high=root.val)
-            + self.rangeSumBST(root.right, low=root.val, high=high)
+            self.rangeSumBST(root.left, low, root.val - 1)
             + root.val
+            + self.rangeSumBST(root.right, root.val + 1, high)
         )
