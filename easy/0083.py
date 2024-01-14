@@ -1,6 +1,5 @@
-"""
-83. Remove Duplicates from Sorted List
-"""
+"""83. Remove Duplicates from Sorted List"""
+
 from typing import Optional
 
 
@@ -13,25 +12,19 @@ class ListNode:
 
 class Solution:
     def deleteDuplicates(self, head: Optional[ListNode]) -> Optional[ListNode]:
-        # Very slow:
-        # Runtime: 88 ms, faster than 13.15% of Python3 online submissions for Remove Duplicates from Sorted List.
-        # Memory Usage: 14 MB, less than 30.07% of Python3 online submissions for Remove Duplicates from Sorted List.
-        if head is None:
-            return
+        if not head or not head.next:
+            return head
 
-        base: int = head.val
-        pre_pointer = head
-        pointer: ListNode = head.next
+        node, prev, nex = head, head, head.next
 
-        while pointer is not None:
-            val = pointer.val
+        while nex:
+            if node.val != nex.val:
+                node.next = nex
+                node = nex
+            prev = nex
+            nex = nex.next
 
-            if val == base:
-                pre_pointer.next = pointer.next
-            else:
-                pre_pointer = pointer
-                base = val
-
-            pointer = pointer.next
+        if node.val == prev.val:
+            node.next = None
 
         return head
