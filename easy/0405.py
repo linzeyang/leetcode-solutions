@@ -1,12 +1,8 @@
-"""
-405. Convert a Number to Hexadecimal
-"""
+"""405. Convert a Number to Hexadecimal"""
 
 
 class Solution:
     def toHex(self, num: int) -> str:
-        # Runtime: 57 ms, faster than 26.04% of Python3 online submissions for Convert a Number to Hexadecimal.
-        # Memory Usage: 13.8 MB, less than 96.98% of Python3 online submissions for Convert a Number to Hexadecimal.
         if num == 0:
             return "0"
 

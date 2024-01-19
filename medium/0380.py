@@ -24,10 +24,10 @@ class RandomizedSet:
         return False
 
     def getRandom(self) -> int:
-        val = choice(self._array)
+        val = choice(self._array)  # noqa: S311
 
         while val not in self._set:
-            val = choice(self._array)
+            val = choice(self._array)  # noqa: S311
 
         return val
 

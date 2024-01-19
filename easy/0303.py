@@ -1,6 +1,5 @@
-"""
-303. Range Sum Query - Immutable
-"""
+"""303. Range Sum Query - Immutable"""
+
 from typing import List
 
 
@@ -9,8 +8,6 @@ class NumArray:
         self._nums = nums
 
     def sumRange(self, left: int, right: int) -> int:
-        # Runtime: 1897 ms, faster than 16.16% of Python3 online submissions for Range Sum Query - Immutable.
-        # Memory Usage: 17.5 MB, less than 65.34% of Python3 online submissions for Range Sum Query - Immutable.
         return sum(self._nums[left : right + 1])
 
 

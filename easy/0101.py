@@ -1,6 +1,5 @@
-"""
-101. Symmetric Tree
-"""
+"""101. Symmetric Tree"""
+
 from typing import Optional
 
 
@@ -14,9 +13,6 @@ class TreeNode:
 
 class Solution:
     def isSymmetric(self, root: Optional[TreeNode]) -> bool:
-        # Very slow:
-        # Runtime: 68 ms, faster than 17.96% of Python3 online submissions for Symmetric Tree.
-        # Memory Usage: 13.9 MB, less than 60.59% of Python3 online submissions for Symmetric Tree.
         if root is None:
             return True
 

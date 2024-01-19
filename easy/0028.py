@@ -2,13 +2,13 @@
 
 
 # Using string.find()
-class SolutionTwo:
+class Solution:
     def strStr(self, haystack: str, needle: str) -> int:
         return haystack.find(needle)
 
 
 # Using iteration
-class Solution:
+class Solution2:
     def strStr(self, haystack: str, needle: str) -> int:
         for idx in range(len(haystack) - len(needle) + 1):
             if (

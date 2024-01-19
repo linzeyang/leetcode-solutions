@@ -12,9 +12,6 @@ class ListNode:
 
 class Solution:
     def partition(self, head: Optional[ListNode], x: int) -> Optional[ListNode]:
-        # Very slow:
-        # Runtime: 75 ms, faster than 14.23% of Python3 online submissions for Partition List.
-        # Memory Usage: 14 MB, less than 30.27% of Python3 online submissions for Partition List.
         if head is None or head.next is None:
             return head
 

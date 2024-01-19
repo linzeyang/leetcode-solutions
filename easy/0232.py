@@ -1,10 +1,6 @@
-"""
-232. Implement Queue using Stacks
-"""
+"""232. Implement Queue using Stacks"""
 
 
-# Runtime: 56 ms, faster than 29.01% of Python3 online submissions for Implement Queue using Stacks.
-# Memory Usage: 14 MB, less than 75.28% of Python3 online submissions for Implement Queue using Stacks.
 class MyQueue:
     def __init__(self):
         self._main_stack = []

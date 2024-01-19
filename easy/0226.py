@@ -1,6 +1,5 @@
-"""
-226. Invert Binary Tree
-"""
+"""226. Invert Binary Tree"""
+
 from typing import Optional
 
 
@@ -14,9 +13,6 @@ class TreeNode:
 
 class Solution:
     def invertTree(self, root: Optional[TreeNode]) -> Optional[TreeNode]:
-        # Very slow:
-        # Runtime: 83 ms, faster than 5.59% of Python3 online submissions for Invert Binary Tree.
-        # Memory Usage: 13.9 MB, less than 56.99% of Python3 online submissions for Invert Binary Tree.
         if root is None:
             return None
 

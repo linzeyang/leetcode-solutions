@@ -13,9 +13,6 @@ class ListNode:
 # Using recursion
 class SolutionRecursion:
     def removeElements(self, head: Optional[ListNode], val: int) -> Optional[ListNode]:
-        # Very slow:
-        # Runtime: 202 ms, faster than 5.08% of Python3 online submissions for Remove Linked List Elements.
-        # Memory Usage: 29 MB, less than 5.75% of Python3 online submissions for Remove Linked List Elements.
         if head is None:
             return None
 

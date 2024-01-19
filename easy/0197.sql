@@ -1,9 +1,5 @@
-"""
-197. Rising Temperature
-"""
+"""197. Rising Temperature"""
 
--- Slow:
--- Runtime: 809 ms, faster than 25.37% of MySQL online submissions for Rising Temperature.
 SELECT t1.id
 FROM Weather AS t1
 INNER JOIN Weather AS t2

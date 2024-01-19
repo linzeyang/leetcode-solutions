@@ -1,6 +1,5 @@
-"""
-110. Balanced Binary Tree
-"""
+"""110. Balanced Binary Tree"""
+
 from typing import Optional
 
 
@@ -14,9 +13,6 @@ class TreeNode:
 
 class Solution:
     def isBalanced(self, root: Optional[TreeNode]) -> bool:
-        # Very slow:
-        # Runtime: 120 ms, faster than 11.13% of Python3 online submissions for Balanced Binary Tree.
-        # Memory Usage: 18.7 MB, less than 61.20% of Python3 online submissions for Balanced Binary Tree.
         if root is None:
             return True
 

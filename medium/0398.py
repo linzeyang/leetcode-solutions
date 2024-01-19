@@ -15,7 +15,7 @@ class Solution:
                 self._con[num].append(idx)
 
     def pick(self, target: int) -> int:
-        return choice(self._con[target])
+        return choice(self._con[target])  # noqa: S311
 
 
 # Your Solution object will be instantiated and called as such:

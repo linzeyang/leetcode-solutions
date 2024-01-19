@@ -1,6 +1,5 @@
-"""
-100. Same Tree
-"""
+"""100. Same Tree"""
+
 from typing import Optional
 
 
@@ -14,9 +13,6 @@ class TreeNode:
 
 class Solution:
     def isSameTree(self, p: Optional[TreeNode], q: Optional[TreeNode]) -> bool:
-        # Fast:
-        # Runtime: 35 ms, faster than 86.37% of Python3 online submissions for Same Tree.
-        # Memory Usage: 14 MB, less than 29.23% of Python3 online submissions for Same Tree.
         if p is None and q is None:
             return True
 

@@ -5,9 +5,11 @@ from typing import List
 
 class Solution:
     def checkArithmeticSubarrays(
-        self, nums: List[int], l: List[int], r: List[int]
+        self, nums: List[int], l: List[int], r: List[int]  # noqa: E741
     ) -> List[bool]:
-        return [self._check(nums[low : high + 1]) for low, high in zip(l, r)]
+        return [
+            self._check(nums[low : high + 1]) for low, high in zip(l, r, strict=False)
+        ]
 
     def _check(self, nums: list[int]) -> bool:
         if len(nums) < 3:

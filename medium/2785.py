@@ -15,7 +15,7 @@ class Solution:
 
         s_list = list(s)
 
-        for idx, letter in zip(vowel_indexes, sorted(vowels)):
+        for idx, letter in zip(vowel_indexes, sorted(vowels), strict=False):
             s_list[idx] = letter
 
         return "".join(s_list)

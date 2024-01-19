@@ -16,8 +16,6 @@ class Solution:
         """
         Do not return anything, modify root in-place instead.
         """
-        # Runtime: 57 ms, faster than 61.27% of Python3 online submissions for Flatten Binary Tree to Linked List.
-        # Memory Usage: 15.3 MB, less than 46.97% of Python3 online submissions for Flatten Binary Tree to Linked List.
         if root is None:
             return
 

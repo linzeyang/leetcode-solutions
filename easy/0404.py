@@ -1,6 +1,5 @@
-"""
-404. Sum of Left Leaves
-"""
+"""404. Sum of Left Leaves"""
+
 from typing import Optional
 
 
@@ -14,9 +13,6 @@ class TreeNode:
 
 class Solution:
     def sumOfLeftLeaves(self, root: Optional[TreeNode]) -> int:
-        # Very slow:
-        # Runtime: 70 ms, faster than 12.03% of Python3 online submissions for Sum of Left Leaves.
-        # Memory Usage: 14.8 MB, less than 45.70% of Python3 online submissions for Sum of Left Leaves.
         if root is None:
             return 0
 

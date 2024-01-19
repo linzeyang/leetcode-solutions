@@ -5,7 +5,9 @@ from typing import List
 
 class Solution:
     def findRelativeRanks(self, score: List[int]) -> List[str]:
-        dic = dict(zip(sorted(score, reverse=True), range(1, len(score) + 1)))
+        dic = dict(
+            zip(sorted(score, reverse=True), range(1, len(score) + 1), strict=False)
+        )
 
         out = []
 

@@ -1,12 +1,8 @@
-"""
-342. Power of Four
-"""
+"""342. Power of Four"""
 
 
 class Solution:
     def isPowerOfFour(self, n: int) -> bool:
-        # Runtime: 50 ms, faster than 53.38% of Python3 online submissions for Power of Four.
-        # Memory Usage: 13.8 MB, less than 94.93% of Python3 online submissions for Power of Four.
         if n <= 0:
             return False
 

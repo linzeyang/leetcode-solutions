@@ -13,4 +13,4 @@ class Solution:
 
         temp.pop()
 
-        return eval("".join(temp))
+        return eval("".join(temp))  # noqa: S307

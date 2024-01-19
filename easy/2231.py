@@ -17,12 +17,14 @@ class Solution:
                 evens_map[idx] = char
 
         for idx, num in zip(
-            list(odds_map.keys()), sorted(odds_map.values(), reverse=True)
+            list(odds_map.keys()), sorted(odds_map.values(), reverse=True), strict=False
         ):
             temp[idx] = num
 
         for idx, num in zip(
-            list(evens_map.keys()), sorted(evens_map.values(), reverse=True)
+            list(evens_map.keys()),
+            sorted(evens_map.values(), reverse=True),
+            strict=False,
         ):
             temp[idx] = num
 

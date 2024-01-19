@@ -1,13 +1,9 @@
-"""
-231. Power of Two
-"""
+"""231. Power of Two"""
 
 
 # Using math.log2
 class SolutionMath:
     def isPowerOfTwo(self, n: int) -> bool:
-        # Runtime: 36 ms, faster than 89.63% of Python3 online submissions for Power of Two.
-        # Memory Usage: 13.8 MB, less than 95.60% of Python3 online submissions for Power of Two.
         if n < 1:
             return False
 
@@ -19,15 +15,20 @@ class SolutionMath:
 # Using iteration
 class Solution:
     def isPowerOfTwo(self, n: int) -> bool:
-        # Very slow:
-        # Runtime: 67 ms, faster than 15.99% of Python3 online submissions for Power of Two.
-        # Memory Usage: 13.8 MB, less than 95.60% of Python3 online submissions for Power of Two.
         if n < 1:
             return False
 
         while n > 1:
-            if n % 2 == 1:
+            if n & 1 == 1:
                 return False
-            n //= 2
+            n >>= 1
 
         return True
+
+
+class Solution3:
+    def isPowerOfTwo(self, n: int) -> bool:
+        if n <= 0:
+            return False
+
+        return bin(n).count("1") == 1

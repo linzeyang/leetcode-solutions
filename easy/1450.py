@@ -7,4 +7,6 @@ class Solution:
     def busyStudent(
         self, startTime: List[int], endTime: List[int], queryTime: int
     ) -> int:
-        return len([x for x, y in zip(startTime, endTime) if x <= queryTime <= y])
+        return len(
+            [x for x, y in zip(startTime, endTime, strict=False) if x <= queryTime <= y]
+        )

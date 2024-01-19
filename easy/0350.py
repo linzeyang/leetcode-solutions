@@ -1,13 +1,10 @@
-"""
-350. Intersection of Two Arrays II
-"""
+"""350. Intersection of Two Arrays II"""
+
 from typing import List
 
 
 class Solution:
     def intersect(self, nums1: List[int], nums2: List[int]) -> List[int]:
-        # Runtime: 85 ms, faster than 48.93% of Python3 online submissions for Intersection of Two Arrays II.
-        # Memory Usage: 14.2 MB, less than 14.77% of Python3 online submissions for Intersection of Two Arrays II.
         dic1 = {}
         dic2 = {}
 

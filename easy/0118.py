@@ -1,6 +1,5 @@
-"""
-118. Pascal's Triangle
-"""
+"""118. Pascal's Triangle"""
+
 from typing import Generator, List
 
 
@@ -10,9 +9,6 @@ class Solution:
 
 
 def gen(n: int) -> Generator[list, None, None]:
-    # Slow:
-    # Runtime: 60 ms, faster than 18.02% of Python3 online submissions for Pascal's Triangle.
-    # Memory Usage: 13.9 MB, less than 65.61% of Python3 online submissions for Pascal's Triangle.
     out = []
 
     for j in range(n):

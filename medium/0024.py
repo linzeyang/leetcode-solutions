@@ -1,6 +1,5 @@
-"""
-24. Swap Nodes in Pairs
-"""
+"""24. Swap Nodes in Pairs"""
+
 from typing import Optional
 
 
@@ -13,8 +12,6 @@ class ListNode:
 
 class Solution:
     def swapPairs(self, head: Optional[ListNode]) -> Optional[ListNode]:
-        # Runtime: 33 ms, faster than 92.58% of Python3 online submissions for Swap Nodes in Pairs.
-        # Memory Usage: 13.8 MB, less than 64.64% of Python3 online submissions for Swap Nodes in Pairs.
         if head is None or head.next is None:
             return head
 

@@ -7,5 +7,7 @@ class Solution:
     def sortPeople(self, names: List[str], heights: List[int]) -> List[str]:
         return [
             tu[0]
-            for tu in sorted(zip(names, heights), key=lambda tup: tup[-1], reverse=True)
+            for tu in sorted(
+                zip(names, heights, strict=False), key=lambda tup: tup[-1], reverse=True
+            )
         ]

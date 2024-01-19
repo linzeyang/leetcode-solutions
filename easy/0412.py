@@ -1,14 +1,10 @@
-"""
-412. Fizz Buzz
-"""
+"""412. Fizz Buzz"""
+
 from typing import List
 
 
 class Solution:
     def fizzBuzz(self, n: int) -> List[str]:
-        # Very slow:
-        # Runtime: 100 ms, faster than 5.65% of Python3 online submissions for Fizz Buzz.
-        # Memory Usage: 15.1 MB, less than 17.74% of Python3 online submissions for Fizz Buzz.
         return [
             "FizzBuzz"
             if i % 15 == 0

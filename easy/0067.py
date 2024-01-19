@@ -1,6 +1,4 @@
-"""
-67. Add Binary
-"""
+"""67. Add Binary"""
 
 
 class Solution:

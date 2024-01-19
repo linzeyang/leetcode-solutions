@@ -6,7 +6,7 @@ from typing import List
 
 class Solution:
     def isAlienSorted(self, words: List[str], order: str) -> bool:
-        dic = dict(zip(order, ascii_lowercase))
+        dic = dict(zip(order, ascii_lowercase, strict=False))
 
         alt_list = ["".join(dic[letter] for letter in word) for word in words]
 

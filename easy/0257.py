@@ -1,6 +1,5 @@
-"""
-257. Binary Tree Paths
-"""
+"""257. Binary Tree Paths"""
+
 from typing import List, Optional
 
 
@@ -14,8 +13,6 @@ class TreeNode:
 
 class Solution:
     def binaryTreePaths(self, root: Optional[TreeNode]) -> List[str]:
-        # Runtime: 57 ms, faster than 39.75% of Python3 online submissions for Binary Tree Paths.
-        # Memory Usage: 14 MB, less than 29.52% of Python3 online submissions for Binary Tree Paths.
         if root is None:
             return []
 

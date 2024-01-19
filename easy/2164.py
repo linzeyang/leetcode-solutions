@@ -13,7 +13,7 @@ class Solution:
 
         out = []
 
-        for a, b in zip(evens, odds):
+        for a, b in zip(evens, odds, strict=False):
             out.append(a)
             out.append(b)
 
