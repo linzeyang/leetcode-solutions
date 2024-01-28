@@ -1,6 +1,5 @@
 """697. Degree of an Array"""
 
-
 from collections import Counter
 from typing import List
 

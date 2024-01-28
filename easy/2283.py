@@ -1,6 +1,5 @@
 """2283. Check if Number Has Equal Digit Count and Digit Value"""
 
-
 from collections import Counter
 
 
