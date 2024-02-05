@@ -5,12 +5,24 @@ from typing import List
 
 class Solution:
     def minNumber(self, nums1: List[int], nums2: List[int]) -> int:
-        if inter := set(nums1) & set(nums2):
-            return min(inter)
+        arr1 = [0] * 10
+        min1 = min2 = common = 10
 
-        num_a = min(nums1)
-        num_b = min(nums2)
+        for num in nums1:
+            arr1[num] = 1
+            if num < min1:
+                min1 = num
 
-        if num_a < num_b:
-            return num_a * 10 + num_b
-        return num_b * 10 + num_a
+        for num in nums2:
+            if arr1[num] and num < common:
+                common = num
+            if num < min2:
+                min2 = num
+
+        if common < 10:
+            return common
+
+        if min1 > min2:
+            return min2 * 10 + min1
+
+        return min1 * 10 + min2

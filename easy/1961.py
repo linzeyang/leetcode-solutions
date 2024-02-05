@@ -9,7 +9,7 @@ class Solution:
 
         aggre = 0
 
-        for idx, word in enumerate(words):
+        for _idx, word in enumerate(words):
             aggre += len(word)
 
             if aggre == len_s:
@@ -20,4 +20,4 @@ class Solution:
         else:
             return False
 
-        return s == "".join(words[: idx + 1])
+        return s == "".join(words[: _idx + 1])
