@@ -3,7 +3,7 @@
 
 class Solution:
     def firstUniqChar(self, s: str) -> int:
-        mapping: dict[int, list[int]] = {}
+        mapping: dict[str, list[int]] = {}
 
         for idx, char in enumerate(s):
             if char not in mapping:

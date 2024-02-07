@@ -1,6 +1,7 @@
 """451. Sort Characters By Frequency"""
 
 import heapq
+from collections import Counter
 
 
 class Solution:
@@ -25,3 +26,15 @@ class Solution:
             out.append(char * -neg_fre)
 
         return "".join(out)
+
+
+class Solution2:
+    def frequencySort(self, s: str) -> str:
+        counter = Counter(s)
+
+        return "".join(
+            char * count
+            for char, count in sorted(
+                counter.items(), key=lambda item: item[1], reverse=True
+            )
+        )
