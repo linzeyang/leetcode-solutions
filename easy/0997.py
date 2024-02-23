@@ -1,32 +1,34 @@
 """997. Find the Town Judge"""
 
-from collections import Counter
 from typing import List
 
 
 class Solution:
     def findJudge(self, n: int, trust: List[List[int]]) -> int:
-        if not trust:
-            return 1 if n == 1 else -1
+        if n == 1 and not trust:
+            return 1
 
-        if len(trust) == 1:
-            if max(trust[0]) == 2:
-                return trust[0][1]
+        trusting_count = {}
+        trusted_count = {}
+
+        for person_a, person_b in trust:
+            if person_a not in trusting_count:
+                trusting_count[person_a] = 1
             else:
-                return -1
+                trusting_count[person_a] += 1
 
-        trust_map = Counter(t[1] for t in trust)
+            if person_b not in trusted_count:
+                trusted_count[person_b] = 1
+            else:
+                trusted_count[person_b] += 1
 
-        candidates = [k for k, v in trust_map.items() if v == n - 1]
+        candidates = []
+
+        for person, count in trusted_count.items():
+            if count == n - 1 and person not in trusting_count:
+                candidates.append(person)
 
         if len(candidates) != 1:
             return -1
 
-        candidate = candidates[0]
-
-        temp = {t[0] for t in trust}
-
-        if candidate in temp:
-            return -1
-
-        return candidate
+        return candidates[0]
