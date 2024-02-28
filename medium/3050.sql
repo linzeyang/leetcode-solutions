@@ -1,4 +1,4 @@
--- 100173. Pizza Toppings Cost Analysis
+-- 3050. Pizza Toppings Cost Analysis
 
 SELECT
     CONCAT_WS (

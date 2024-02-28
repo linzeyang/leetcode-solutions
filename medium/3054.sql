@@ -1,4 +1,4 @@
--- 100177. Binary Tree Nodes
+-- 3054. Binary Tree Nodes
 
 SELECT DISTINCT
     (t1.N) AS N,
