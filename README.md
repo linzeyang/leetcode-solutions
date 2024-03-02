@@ -1,3 +1,3 @@
-# Accepted solutions on Python3 for LeedCode.com
+# Accepted solutions for leetcode.com
 
-Problems: https://leetcode.com/problemset/
+Problems list: https://leetcode.com/problemset/
