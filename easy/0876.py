@@ -1,34 +1,25 @@
 """876. Middle of the Linked List"""
 
-from math import ceil
 from typing import Optional
 
 
 # Definition for singly-linked list.
 class ListNode:
-    def __init__(self, val=0, next=None):
-        self.val = val
-        self.next = next
+    def __init__(self, x):
+        self.val = x
+        self.next = None
 
 
 class Solution:
-    def middleNode(self, head: Optional[ListNode]) -> Optional[ListNode]:
-        if head is None or head.next is None:
-            return head
-
-        count = 0
-
+    def hasCycle(self, head: Optional[ListNode]) -> bool:
+        node_set: set[ListNode] = set()
         node = head
 
-        while node.next is not None:
-            count += 1
-            node = node.next
+        while node:
+            if node not in node_set:
+                node_set.add(node)
+                node = node.next
+            else:
+                return True
 
-        steps = ceil(count / 2)
-
-        node = head
-
-        for _ in range(steps):
-            node = node.next
-
-        return node
+        return False
