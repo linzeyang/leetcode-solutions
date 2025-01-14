@@ -5,15 +5,24 @@ from typing import List
 
 class Solution:
     def findThePrefixCommonArray(self, A: List[int], B: List[int]) -> List[int]:
-        seta = set()
-        setb = set()
+        set_a, set_b = set(), set()
 
-        out = []
+        out: list[int] = []
 
         for idx in range(len(A)):
-            seta.add(A[idx])
-            setb.add(B[idx])
+            if A[idx] == B[idx]:
+                out.append((out[-1] if out else 0) + 1)
+            else:
+                num = 0
 
-            out.append(len(seta & setb))
+                if A[idx] in set_b:
+                    num += 1
+                if B[idx] in set_a:
+                    num += 1
+
+                out.append((out[-1] if out else 0) + num)
+
+            set_a.add(A[idx])
+            set_b.add(B[idx])
 
         return out
