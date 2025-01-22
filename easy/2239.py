@@ -5,18 +5,16 @@ from typing import List
 
 class Solution:
     def findClosestNumber(self, nums: List[int]) -> int:
-        ll = sorted(nums, key=abs)
+        candidate = nums[0]
+        candidate_distance = abs(candidate)
 
-        base = None
-        candi = []
+        for idx in range(1, len(nums)):
+            num = nums[idx]
 
-        for num in ll:
-            if base is None:
-                base = abs(num)
-                candi.append(num)
-            elif abs(num) == base:
-                candi.append(num)
-            else:
-                break
+            if abs(num) < candidate_distance or (
+                abs(num) == candidate_distance and num > 0
+            ):
+                candidate = num
+                candidate_distance = abs(num)
 
-        return max(candi)
+        return candidate
