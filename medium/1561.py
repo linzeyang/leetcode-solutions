@@ -5,5 +5,6 @@ from typing import List
 
 class Solution:
     def maxCoins(self, piles: List[int]) -> int:
-        piles.sort()
-        return sum(piles[-idx * 2] for idx in range(1, len(piles) // 3 + 1))
+        piles.sort(reverse=True)
+
+        return sum(piles[idx * 2 + 1] for idx in range(len(piles) // 3))
