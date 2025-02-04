@@ -1,4 +1,4 @@
-"""2148. Count Elements With Strictly Smaller and Greater Elements """
+"""2148. Count Elements With Strictly Smaller and Greater Elements"""
 
 from typing import List
 

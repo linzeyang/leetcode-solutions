@@ -1,4 +1,4 @@
-"""2656. Maximum Sum With Exactly K Elements """
+"""2656. Maximum Sum With Exactly K Elements"""
 
 from typing import List
 
