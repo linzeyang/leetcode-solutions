@@ -1,9 +1,9 @@
 [tool.black]
 line-length = 88
-target-version = ['py311']
+target-version = ['py312']
 
 [tool.isort]
-py_version = 311
+py_version = 312
 profile = "black"
 
 [tool.pylint.format]
@@ -11,7 +11,7 @@ max-line-length = "88"
 
 [tool.ruff]
 line-length = 88
-target-version = "py311"
+target-version = "py312"
 output-format = "full"
 
 [tool.ruff.lint]

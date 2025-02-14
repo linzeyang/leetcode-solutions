@@ -3,7 +3,7 @@
 
 class Solution:
     def removeOccurrences(self, s: str, part: str) -> str:
-        while part in s:
-            s = "".join(s.split(part, 1))
+        while (idx := s.find(part)) >= 0:
+            s = s[:idx] + s[idx + len(part) :]
 
         return s
