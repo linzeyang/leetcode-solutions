@@ -5,17 +5,12 @@ from typing import List
 
 class Solution:
     def replaceElements(self, arr: List[int]) -> List[int]:
-        if (length := len(arr)) == 1:
-            return [-1]
+        current_max = -1
 
-        res = arr[-1]
+        for idx in range(1, len(arr) + 1):
+            current = arr[-idx]
+            arr[-idx] = current_max
 
-        for i in range(2, length):
-            ori = arr[-i]
-            arr[-i] = res
-            res = max(res, ori)
-
-        arr[-1] = -1
-        arr[0] = res
+            current_max = max(current_max, current)
 
         return arr
