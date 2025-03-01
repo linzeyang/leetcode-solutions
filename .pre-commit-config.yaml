@@ -26,11 +26,11 @@ repos:
       - id: flake8
         args: ["--ignore=B019,E203,E501,E704,W503"]
   - repo: https://github.com/PyCQA/isort
-    rev: 6.0.0
+    rev: 6.0.1
     hooks:
       - id: isort
   - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.9.7
+    rev: v0.9.9
     hooks:
       - id: ruff
         args: ["--config=./pyproject.toml"]
