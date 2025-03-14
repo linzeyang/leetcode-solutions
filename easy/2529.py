@@ -5,34 +5,12 @@ from typing import List
 
 class Solution:
     def maximumCount(self, nums: List[int]) -> int:
-        length = len(nums)
+        pos = neg = 0
 
-        if nums[0] > 0 or nums[-1] < 0:
-            return length
+        for num in nums:
+            if num < 0:
+                neg += 1
+            elif num > 0:
+                pos += 1
 
-        if nums[0] == 0:
-            for i in range(length):
-                if nums[i] > 0:
-                    return length - i
-            return 0
-
-        if nums[-1] == 0:
-            for i in range(length):
-                if nums[-i - 1] < 0:
-                    return length - i
-            return 0
-
-        neg = pos = -1
-
-        for i in range(length):
-            if nums[i] == 0 and neg == -1:
-                neg = i
-            elif nums[i] > 0 and pos == -1:
-                pos = length - i
-                if neg == -1:
-                    neg = i
-
-            if neg >= 0 and pos >= 0:
-                break
-
-        return max(neg, pos)
+        return max(pos, neg)
