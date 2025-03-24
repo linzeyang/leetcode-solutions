@@ -1,4 +1,4 @@
-//
+// 2705. Compact Object
 
 /**
  * @param {Object|Array} obj

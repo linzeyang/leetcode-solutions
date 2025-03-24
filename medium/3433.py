@@ -7,7 +7,7 @@ class Solution:
     def countMentions(self, numberOfUsers: int, events: List[List[str]]) -> List[int]:
         events.sort(key=lambda ele: (int(ele[1]), int(ele[0] == "MESSAGE")))
 
-        out: dict[int, int] = {idx: 0 for idx in range(numberOfUsers)}
+        out: dict[int, int] = dict.fromkeys(range(numberOfUsers), 0)
 
         offline_id_ts: dict[int, int] = {}
 

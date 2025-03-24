@@ -1,6 +1,4 @@
-"""
-6. Zigzag Conversion
-"""
+"""6. Zigzag Conversion"""
 
 
 class Solution:
