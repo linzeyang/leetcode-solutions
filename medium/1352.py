@@ -2,7 +2,6 @@
 
 
 class ProductOfNumbers:
-
     def __init__(self):
         self._prefix_prods: list[int] = []
 

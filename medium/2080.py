@@ -5,7 +5,6 @@ from typing import List
 
 
 class RangeFreqQuery:
-
     def __init__(self, arr: List[int]):
         self.freqs: dict = {}
 

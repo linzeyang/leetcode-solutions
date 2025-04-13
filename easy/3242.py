@@ -4,7 +4,6 @@ from typing import List
 
 
 class NeighborSum:
-
     def __init__(self, grid: List[List[int]]):
         self._grid = grid
         self._mapping = {}

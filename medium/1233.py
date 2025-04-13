@@ -10,7 +10,6 @@ class Solution:
         out: list[tuple[str, ...]] = []
 
         for fold in folder:
-
             if fold == "/":
                 continue
 
