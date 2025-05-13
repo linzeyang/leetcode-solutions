@@ -8,8 +8,21 @@ class Solution:
         if len(arr) < 3:
             return False
 
-        for idx in range(len(arr) - 2):
-            if arr[idx] % 2 and arr[idx + 1] % 2 and arr[idx + 2] % 2:
-                return True
+        idx = 0
+
+        while idx < len(arr) - 2:
+            if arr[idx] & 1 == 0:
+                idx += 1
+                continue
+
+            if arr[idx + 1] & 1 == 0:
+                idx += 2
+                continue
+
+            if arr[idx + 2] & 1 == 0:
+                idx += 3
+                continue
+
+            return True
 
         return False
