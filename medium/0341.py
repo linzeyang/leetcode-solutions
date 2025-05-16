@@ -33,7 +33,7 @@ class NestedInteger:
 
 
 class NestedIterator:
-    def __init__(self, nestedList: list(NestedInteger)):
+    def __init__(self, nestedList: list[NestedInteger]):
         self._iter_chain: list[Iterable[NestedInteger]] = [iter(nestedList)]
 
     def next(self) -> int:

@@ -17,3 +17,26 @@ output-format = "full"
 [tool.ruff.lint]
 select = ["B", "C", "E", "F", "I", "Q", "S", "W"]
 ignore = ["B019", "C901", "S101"]
+
+[tool.ty.environment]
+python-version = "3.12"
+
+[tool.ty.rules]
+invalid-argument-type = "ignore"
+invalid-assignment = "ignore"
+invalid-parameter-default = "ignore"
+invalid-return-type = "ignore"
+missing-argument = "ignore"
+non-subscriptable = "ignore"
+not-iterable = "ignore"
+possibly-unbound-attribute = "ignore"
+unresolved-attribute = "ignore"
+unresolved-import = "ignore"
+unresolved-reference = "ignore"
+unsupported-operator = "ignore"
+
+[tool.ty.src]
+root = "./"
+
+[tool.ty.terminal]
+output-format = "full"
