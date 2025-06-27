@@ -20,6 +20,7 @@ ignore = ["B019", "C901", "S101"]
 
 [tool.ty.environment]
 python-version = "3.12"
+root = ["./"]
 
 [tool.ty.rules]
 invalid-argument-type = "ignore"
@@ -34,9 +35,6 @@ unresolved-attribute = "ignore"
 unresolved-import = "ignore"
 unresolved-reference = "ignore"
 unsupported-operator = "ignore"
-
-[tool.ty.src]
-root = "./"
 
 [tool.ty.terminal]
 output-format = "full"
