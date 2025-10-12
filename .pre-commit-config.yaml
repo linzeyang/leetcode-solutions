@@ -17,11 +17,11 @@ repos:
       - id: mixed-line-ending
       - id: trailing-whitespace
   - repo: https://github.com/asottile/pyupgrade
-    rev: v3.20.0
+    rev: v3.21.0
     hooks:
     -   id: pyupgrade
   - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.13.1
+    rev: v0.14.0
     hooks:
       - id: ruff-check
         args: ["--fix", "--config=./pyproject.toml"]
@@ -37,7 +37,7 @@ repos:
       - id: flake8
         args: ["--ignore=B019,E203,E501,E704,W503"]
   - repo: https://github.com/PyCQA/isort
-    rev: 6.0.1
+    rev: 6.1.0
     hooks:
       - id: isort
   - repo: https://github.com/pre-commit/mirrors-prettier
