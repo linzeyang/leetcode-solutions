@@ -3,6 +3,16 @@
 
 class Solution:
     def smallestNumber(self, n: int) -> int:
-        length = len(f"{n:b}")
+        """
+        Bit manipulation
+        Time complexity: O(log n)
+        Space complexity: O(1)
+        """
 
-        return int("1" * length, base=2)
+        out: int = 0
+
+        while n:
+            n >>= 1
+            out = (out << 1) + 1
+
+        return out
