@@ -6,12 +6,12 @@ from typing import List
 
 class Solution:
     def isOneBitCharacter(self, bits: List[int]) -> bool:
-        length = len(bits)
+        length: int = len(bits)
 
         if length == 1:
             return bits[0] == 0
 
-        que = deque(bits)
+        que: deque[int] = deque(bits)
 
         while len(que) > 1:
             if que[0] == 1:
@@ -20,7 +20,4 @@ class Solution:
             else:
                 que.popleft()
 
-        if not que or que[0] != 0:
-            return False
-
-        return True
+        return bool(que and que[0] == 0)
