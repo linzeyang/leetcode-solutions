@@ -41,6 +41,19 @@ repos:
     rev: 7.0.0
     hooks:
       - id: isort
+  - repo: local
+    hooks:
+      - id: eslint
+        name: eslint
+        language: system
+        entry: bunx eslint
+        args: ["--fix", "--max-warnings=0"]
+        types_or: [javascript]
+      - id: sort-package-json
+        name: sort package.json
+        language: system
+        entry: bunx sort-package-json
+        files: ^package\.json$
   - repo: https://github.com/pre-commit/mirrors-prettier
     rev: v4.0.0-alpha.8
     hooks:
