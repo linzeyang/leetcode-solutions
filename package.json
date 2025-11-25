@@ -1,0 +1,17 @@
+{
+  "name": "leetcode-solutions",
+  "private": true,
+  "version": "0.1.0",
+  "description": "LeetCode solutions with minimal ESLint setup",
+  "license": "MIT",
+  "scripts": {
+    "lint": "eslint \"**/*.js\"",
+    "lint:fix": "eslint \"**/*.js\" --fix"
+  },
+  "devDependencies": {
+    "eslint": "^9.14.0",
+    "@eslint/js": "^9.14.0",
+    "globals": "^16.5.0",
+    "eslint-config-prettier": "^10.1.0"
+  }
+}
