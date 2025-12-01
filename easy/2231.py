@@ -3,12 +3,12 @@
 
 class Solution:
     def largestInteger(self, num: int) -> int:
-        str_num = str(num)
+        str_num: str = str(num)
 
-        temp: list[None | int] = [None] * len(str_num)
+        temp: list[str] = [""] * len(str_num)
 
-        odds_map = {}
-        evens_map = {}
+        odds_map: dict[int, str] = {}
+        evens_map: dict[int, str] = {}
 
         for idx, char in enumerate(str_num):
             if int(char) % 2 == 1:

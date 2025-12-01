@@ -43,6 +43,11 @@ repos:
       - id: isort
   - repo: local
     hooks:
+      - id: ty
+        name: ty
+        language: system
+        entry: ty check
+        args: ["."]
       - id: eslint
         name: eslint
         language: system

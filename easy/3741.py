@@ -6,7 +6,7 @@ from typing import List
 
 class Solution:
     def minimumDistance(self, nums: List[int]) -> int:
-        mapping: defaultdict[list[int]] = defaultdict(list)
+        mapping: defaultdict[int, list[int]] = defaultdict(list)
 
         for idx, num in enumerate(nums):
             mapping[num].append(idx)

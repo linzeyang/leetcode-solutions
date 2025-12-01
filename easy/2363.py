@@ -7,7 +7,7 @@ class Solution:
     def mergeSimilarItems(
         self, items1: List[List[int]], items2: List[List[int]]
     ) -> List[List[int]]:
-        dic = dict(items1)
+        dic: dict[int, int] = {k: v for k, v in items1}  # noqa: C416
 
         for v, w in items2:
             if v not in dic:
