@@ -7,13 +7,11 @@
  * @return {Function}
  */
 var cancellable = function (fn, args, t) {
-  let timeoutId;
-
   const executeFn = () => {
     fn(...args);
   };
 
-  timeoutId = setTimeout(executeFn, t);
+  const timeoutId = setTimeout(executeFn, t);
 
   const cancelFn = () => {
     clearTimeout(timeoutId);

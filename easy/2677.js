@@ -6,7 +6,7 @@
  * @return {Array[]}
  */
 var chunk = function (arr, size) {
-  let out = [];
+  const out = [];
 
   let sub = [];
 

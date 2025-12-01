@@ -12,7 +12,7 @@ var fibGenerator = function* () {
 
   while (true) {
     yield a + b;
-    let temp = a;
+    const temp = a;
     a = b;
     b = temp + a;
   }

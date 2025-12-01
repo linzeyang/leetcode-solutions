@@ -9,7 +9,7 @@ var once = function (fn) {
 
   return function (...args) {
     if (!called) {
-      let result = fn(...args);
+      const result = fn(...args);
       called = true;
       return result;
     }

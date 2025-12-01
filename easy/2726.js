@@ -37,7 +37,7 @@ class Calculator {
    * @return {Calculator}
    */
   divide(value) {
-    if (value == 0) {
+    if (value === 0) {
       throw "Division by zero is not allowed";
     }
 

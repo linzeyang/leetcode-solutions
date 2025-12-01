@@ -7,16 +7,14 @@
  * @return {Function}
  */
 var cancellable = function (fn, args, t) {
-  let time = 0;
-  let interval = setInterval(() => {
+  fn(...args);
+
+  const intervalId = setInterval(() => {
     fn(...args);
-    time += t;
   }, t);
 
-  return function () {
-    let out = { time, returned: fn(...args) };
-    clearInterval(interval);
-    return out;
+  return () => {
+    clearInterval(intervalId);
   };
 };
 
