@@ -5,39 +5,27 @@ from typing import List
 
 class Solution:
     def countCoveredBuildings(self, n: int, buildings: List[List[int]]) -> int:
-        y_range_per_x: dict[int, list[int]] = {}
-        x_range_per_y: dict[int, list[int]] = {}
+        x_ranges: dict[int, list[int]] = {}
+        y_ranges: dict[int, list[int]] = {}
 
         for x, y in buildings:
-            if x not in y_range_per_x:
-                y_range_per_x[x] = [y, y]
+            if y not in x_ranges:
+                x_ranges[y] = [x, x]
             else:
-                if y < y_range_per_x[x][0]:
-                    y_range_per_x[x][0] = y
-                elif y > y_range_per_x[x][1]:
-                    y_range_per_x[x][1] = y
+                x_ranges[y] = [min(x, x_ranges[y][0]), max(x, x_ranges[y][1])]
 
-            if y not in x_range_per_y:
-                x_range_per_y[y] = [x, x]
+            if x not in y_ranges:
+                y_ranges[x] = [y, y]
             else:
-                if x < x_range_per_y[y][0]:
-                    x_range_per_y[y][0] = x
-                elif x > x_range_per_y[y][1]:
-                    x_range_per_y[y][1] = x
+                y_ranges[x] = [min(y, y_ranges[x][0]), max(y, y_ranges[x][1])]
 
-        out = 0
+        out: int = 0
 
         for x, y in buildings:
             if (
-                x not in y_range_per_x
-                or y <= y_range_per_x[x][0]
-                or y >= y_range_per_x[x][1]
-                or y not in x_range_per_y
-                or x <= x_range_per_y[y][0]
-                or x >= x_range_per_y[y][1]
+                y_ranges[x][0] < y < y_ranges[x][1]
+                and x_ranges[y][0] < x < x_ranges[y][1]
             ):
-                continue
-
-            out += 1
+                out += 1
 
         return out

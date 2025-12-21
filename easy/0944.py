@@ -5,13 +5,12 @@ from typing import List
 
 class Solution:
     def minDeletionSize(self, strs: List[str]) -> int:
-        num_of_columns = len(strs[0])
-        count = 0
+        out: int = 0
 
-        for idx in range(num_of_columns):
-            chars = [string[idx] for string in strs]
+        for col in range(len(strs[0])):
+            for row in range(1, len(strs)):
+                if strs[row][col] < strs[row - 1][col]:
+                    out += 1
+                    break
 
-            if chars != sorted(chars):
-                count += 1
-
-        return count
+        return out
