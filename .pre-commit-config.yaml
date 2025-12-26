@@ -37,17 +37,18 @@ repos:
     hooks:
       - id: flake8
         args: ["--ignore=B019,E203,E501,E704,W503"]
+  - repo: https://github.com/facebook/pyrefly-pre-commit
+    rev: 0.46.1
+    hooks:
+      - id: pyrefly-check
+        name: Pyrefly (type checking)
+        pass_filenames: true
   - repo: https://github.com/PyCQA/isort
     rev: 7.0.0
     hooks:
       - id: isort
   - repo: local
     hooks:
-      - id: ty
-        name: ty
-        language: system
-        entry: ty check
-        args: ["."]
       - id: eslint
         name: eslint
         language: system

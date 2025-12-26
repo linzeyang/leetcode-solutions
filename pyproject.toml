@@ -9,6 +9,9 @@ profile = "black"
 [tool.pylint.format]
 max-line-length = "88"
 
+[tool.pyrefly]
+python-version = "3.12"
+
 [tool.ruff]
 line-length = 88
 target-version = "py312"
