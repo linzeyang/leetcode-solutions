@@ -7,12 +7,12 @@ function memoize(fn) {
   const storage = {};
 
   return function (...args) {
-    let key = JSON.stringify(args);
+    const key = JSON.stringify(args);
 
     if (key in storage) {
       return storage[key];
     } else {
-      let result = fn(...args);
+      const result = fn(...args);
       storage[key] = result;
       return result;
     }

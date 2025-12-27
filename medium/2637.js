@@ -15,12 +15,7 @@ var timeLimit = function (fn, t) {
     });
 
     // Use Promise.race to race between fn and timeoutPromise
-    try {
-      const result = await Promise.race([fn(...args), timeoutPromise]);
-      return result;
-    } catch (err) {
-      throw err;
-    }
+    return Promise.race([fn(...args), timeoutPromise]);
   };
 };
 

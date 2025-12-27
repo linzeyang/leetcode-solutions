@@ -5,11 +5,11 @@
     "": {
       "name": "leetcode-solutions",
       "devDependencies": {
-        "@eslint/js": "latest",
-        "eslint": "latest",
-        "eslint-config-prettier": "latest",
-        "globals": "latest",
-        "prettier": "latest",
+        "@eslint/js": "^9.39.2",
+        "eslint": "^9.39.2",
+        "eslint-config-prettier": "^10.1.8",
+        "globals": "^16.5.0",
+        "prettier": "^3.7.4",
       },
     },
   },

@@ -5,7 +5,7 @@
  * @return {Generator}
  */
 var inorderTraversal = function* (arr) {
-  for (let ele of arr) {
+  for (const ele of arr) {
     if (typeof ele === "number") {
       yield ele;
     } else {

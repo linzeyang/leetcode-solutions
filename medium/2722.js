@@ -6,7 +6,7 @@
  * @return {Array}
  */
 var join = function (arr1, arr2) {
-  let map = new Map();
+  const map = new Map();
 
   for (let i = 0; i < arr1.length; i++) {
     map.set(arr1[i].id, arr1[i]);
@@ -20,7 +20,7 @@ var join = function (arr1, arr2) {
     }
   }
 
-  let out = Array.from(map.values());
+  const out = Array.from(map.values());
 
   return out.sort((a, b) => a.id - b.id);
 };

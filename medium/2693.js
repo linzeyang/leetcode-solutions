@@ -11,7 +11,7 @@ Function.prototype.callPolyfill = function (context, ...args) {
   }
 
   const fn = this;
-  const obj = context || window;
+  const obj = context || globalThis;
   const fnName = Symbol();
   obj[fnName] = fn;
   const result = obj[fnName](...args);
