@@ -5,10 +5,10 @@ from typing import List
 
 class Solution:
     def repeatedNTimes(self, nums: List[int]) -> int:
-        ss = set()
+        seen_nums: set[int] = set()
 
         for num in nums:
-            if num in ss:
+            if num in seen_nums:
                 return num
 
-            ss.add(num)
+            seen_nums.add(num)
