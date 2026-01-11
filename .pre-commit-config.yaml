@@ -22,7 +22,7 @@ repos:
     hooks:
     -   id: pyupgrade
   - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.14.10
+    rev: v0.14.11
     hooks:
       - id: ruff-check
         args: ["--fix", "--config=./pyproject.toml"]
@@ -38,7 +38,7 @@ repos:
       - id: flake8
         args: ["--ignore=B019,E203,E501,E704,W503"]
   - repo: https://github.com/facebook/pyrefly-pre-commit
-    rev: 0.46.3
+    rev: 0.47.0
     hooks:
       - id: pyrefly-check
         name: Pyrefly (type checking)
