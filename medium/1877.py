@@ -4,7 +4,12 @@ from typing import List
 
 
 class Solution:
-    def minPairSum(self, nums: List[int]) -> int:
-        ll = sorted(nums)
+    """
+    https://leetcode.com/problems/minimize-maximum-pair-sum-in-array/
+    Biweekly Contest 53
+    """
 
-        return max((ll[i] + ll[-i - 1]) for i in range(len(nums) // 2))
+    def minPairSum(self, nums: List[int]) -> int:
+        nums.sort()
+
+        return max(nums[idx] + nums[-idx - 1] for idx in range(len(nums) // 2))

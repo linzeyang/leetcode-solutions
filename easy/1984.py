@@ -4,18 +4,15 @@ from typing import List
 
 
 class Solution:
+    """
+    https://leetcode.com/problems/minimum-difference-between-highest-and-lowest-of-k-scores/
+    Weekly Contest 256
+    """
+
     def minimumDifference(self, nums: List[int], k: int) -> int:
-        if k == 1:
-            return 0
+        nums.sort()
 
-        nums = sorted(nums)
-
-        out = None
-
-        for idx in range(len(nums) - k + 1):
-            diff = nums[idx + k - 1] - nums[idx]
-
-            if out is None or diff < out:
-                out = diff
-
-        return out
+        return min(
+            (nums[idx + k - 1] - nums[idx] for idx in range(len(nums) - k + 1)),
+            default=0,
+        )
