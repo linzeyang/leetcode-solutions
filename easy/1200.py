@@ -4,20 +4,25 @@ from typing import List
 
 
 class Solution:
+    """
+    https://leetcode.com/problems/minimum-absolute-difference/
+    Weekly Contest 155
+    """
+
     def minimumAbsDifference(self, arr: List[int]) -> List[List[int]]:
-        out = []
-        diff = None
+        out: list[list[int]] = []
 
-        ll = sorted(arr)
+        arr.sort()
 
-        for i in range(1, len(arr)):
-            if diff is None:
-                diff = ll[i] - ll[i - 1]
-                out.append([ll[i - 1], ll[i]])
-            elif (dif := ll[i] - ll[i - 1]) < diff:
-                diff = dif
-                out = [[ll[i - 1], ll[i]]]
-            elif dif == diff:
-                out.append([ll[i - 1], ll[i]])
+        min_diff: int | float = float("inf")
+
+        for idx in range(len(arr) - 1):
+            diff: int = arr[idx + 1] - arr[idx]
+
+            if diff < min_diff:
+                min_diff = diff
+                out = [[arr[idx], arr[idx + 1]]]
+            elif diff == min_diff:
+                out.append([arr[idx], arr[idx + 1]])
 
         return out
