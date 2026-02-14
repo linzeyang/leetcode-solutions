@@ -1,5 +1,7 @@
 """1382. Balance a Binary Search Tree"""
 
+from typing import Optional
+
 
 # Definition for a binary tree node.
 class TreeNode:
@@ -10,29 +12,32 @@ class TreeNode:
 
 
 class Solution:
-    def balanceBST(self, root: TreeNode) -> TreeNode:
-        array = self._construct_array(root)
+    """
+    https://leetcode.com/problems/balance-a-binary-search-tree/
+    Weekly Contest 180
+    """
 
-        return self._construct_tree(array)
+    def balanceBST(self, root: Optional[TreeNode]) -> Optional[TreeNode]:
+        values: list[int] = []
+        self._inorder_traversal(root=root, values=values)
 
-    def _construct_array(self, root: TreeNode | None) -> list[int]:
+        return self._build_tree(values=values, left=0, right=len(values) - 1)
+
+    def _inorder_traversal(self, root: TreeNode | None, values: list[int]) -> None:
         if not root:
-            return []
-
-        return (
-            self._construct_array(root.left)
-            + [root.val]
-            + self._construct_array(root.right)
-        )
-
-    def _construct_tree(self, array: list[int]) -> TreeNode | None:
-        if not array:
             return
 
-        mid = len(array) // 2
+        self._inorder_traversal(root=root.left, values=values)
+        values.append(root.val)
+        self._inorder_traversal(root=root.right, values=values)
 
-        return TreeNode(
-            val=array[mid],
-            left=self._construct_tree(array[:mid]),
-            right=self._construct_tree(array[mid + 1 :]),
-        )
+    def _build_tree(self, values: list[int], left: int, right: int) -> TreeNode | None:
+        if left > right:
+            return
+
+        mid: int = (left + right) // 2
+        root = TreeNode(val=values[mid])
+        root.left = self._build_tree(values=values, left=left, right=mid - 1)
+        root.right = self._build_tree(values=values, left=mid + 1, right=right)
+
+        return root
