@@ -2,8 +2,12 @@
 
 
 class Solution:
+    """
+    https://leetcode.com/problems/reverse-bits/
+    """
+
     def reverseBits(self, n: int) -> int:
-        out = 0
+        out: int = 0
 
         for _ in range(32):
             if n > 0:
@@ -13,3 +17,8 @@ class Solution:
                 out <<= 1
 
         return out
+
+
+class Solution2:
+    def reverseBits(self, n: int) -> int:
+        return int(f"{n:0>32b}"[::-1], base=2)

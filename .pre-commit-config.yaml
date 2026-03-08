@@ -22,14 +22,14 @@ repos:
     hooks:
       - id: pyupgrade
   - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.15.4
+    rev: v0.15.5
     hooks:
       - id: ruff-check
         args: ["--fix", "--config=./pyproject.toml"]
       - id: ruff-format
         args: ["--config=./pyproject.toml"]
   - repo: https://github.com/psf/black
-    rev: 26.1.0
+    rev: 26.3.0
     hooks:
       - id: black
   - repo: https://github.com/PyCQA/flake8
