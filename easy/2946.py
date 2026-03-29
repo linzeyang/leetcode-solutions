@@ -1,31 +1,29 @@
-"""2946. Matrix Similarity After Cyclic Shifts"""
+"""
+2946. Matrix Similarity After Cyclic Shifts
+
+https://leetcode.com/problems/matrix-similarity-after-cyclic-shifts/
+
+Weekly Contest 373
+"""
 
 from typing import List
 
 
 class Solution:
     def areSimilar(self, mat: List[List[int]], k: int) -> bool:
-        height = len(mat)
-        width = len(mat[0])
+        width: int = len(mat[0])
 
-        if k % width == 0:
-            return True
+        even_shift: int = width - k % width
+        odd_shift: int = k % width
 
-        temp: set[tuple[int, int]] = set()
-
-        for idx in range(width):
-            if idx % 2 == 0:
-                target = (idx + k) % width
+        for idx, row in enumerate(mat):
+            if idx & 1 == 0:
+                for jdx in range(even_shift):
+                    if row[jdx] != row[(jdx + even_shift) % width]:
+                        return False
             else:
-                target = (idx - k) % width
-
-            if tuple(sorted((idx, target))) in temp:
-                continue
-
-            for jdx in range(height):
-                if mat[jdx][idx] != mat[jdx][target]:
-                    return False
-
-            temp.add(tuple(sorted((idx, target))))
+                for jdx in range(odd_shift):
+                    if row[jdx] != row[(jdx + odd_shift) % width]:
+                        return False
 
         return True
