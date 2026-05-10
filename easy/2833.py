@@ -1,13 +1,16 @@
-"""2833. Furthest Point From Origin"""
+"""
+2833. Furthest Point From Origin
+
+https://leetcode.com/problems/furthest-point-from-origin/
+
+Weekly Contest 360
+"""
+
+from collections import Counter
 
 
 class Solution:
     def furthestDistanceFromOrigin(self, moves: str) -> int:
-        num_l = moves.count("L")
-        num_r = moves.count("R")
-        num__ = len(moves) - num_l - num_r
+        counter: Counter[str] = Counter(moves)
 
-        if num_l == num_r:
-            return num__
-
-        return abs(num_l - num_r) + num__
+        return abs(counter["L"] - counter["R"]) + counter["_"]
