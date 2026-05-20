@@ -1,19 +1,19 @@
-"""2553. Separate the Digits in an Array"""
+"""
+2553. Separate the Digits in an Array
+
+https://leetcode.com/problems/separate-the-digits-in-an-array/
+
+Biweekly Contest 97
+"""
 
 from typing import List
 
 
 class Solution:
     def separateDigits(self, nums: List[int]) -> List[int]:
-        out = []
+        out: list[int] = []
 
         for num in nums:
-            out.extend(self._seperate(num))
+            out.extend(int(char) for char in str(num))
 
         return out
-
-    def _seperate(self, num: int) -> list[int]:
-        if num < 10:
-            return [num]
-
-        return [int(char) for char in str(num)]
