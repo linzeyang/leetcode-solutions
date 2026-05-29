@@ -1,4 +1,10 @@
-"""3300. Minimum Element After Replacement With Digit Sum"""
+"""
+3300. Minimum Element After Replacement With Digit Sum
+
+https://leetcode.com/problems/minimum-element-after-replacement-with-digit-sum/
+
+Biweekly Contest 140
+"""
 
 from typing import List
 
@@ -8,10 +14,4 @@ class Solution:
         def digit_sum(num: int) -> int:
             return sum(int(digit) for digit in str(num))
 
-        out = digit_sum(nums[0])
-
-        for idx in range(1, len(nums)):
-            if (summ := digit_sum(nums[idx])) < out:
-                out = summ
-
-        return out
+        return min(map(digit_sum, nums))

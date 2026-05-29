@@ -1,23 +1,22 @@
-"""3120. Count the Number of Special Characters I"""
+"""
+3120. Count the Number of Special Characters I
+
+https://leetcode.com/problems/count-the-number-of-special-characters-i/
+
+Weekly Contest 394
+"""
+
+from collections import Counter
 
 
 class Solution:
     def numberOfSpecialChars(self, word: str) -> int:
-        mapping: dict[str, list[int]] = {}
+        counter: Counter[str] = Counter(word)
 
-        for char in word:
-            low = char.lower()
-            is_low = int(char.islower())
+        out: int = 0
 
-            if low not in mapping:
-                mapping[low] = [0, 0]
+        for key in counter.keys():
+            if key.islower() and key.upper() in counter:
+                out += 1
 
-            mapping[low][is_low] = 1
-
-        count = 0
-
-        for val in mapping.values():
-            if val[0] == val[1] == 1:
-                count += 1
-
-        return count
+        return out

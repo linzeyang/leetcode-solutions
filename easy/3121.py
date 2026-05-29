@@ -1,30 +1,26 @@
-"""3121. Count the Number of Special Characters II"""
+"""
+3121. Count the Number of Special Characters II
+
+https://leetcode.com/problems/count-the-number-of-special-characters-ii/
+
+Weekly Contest 394
+"""
 
 
 class Solution:
     def numberOfSpecialChars(self, word: str) -> int:
-        mapping: dict[str, list[int]] = {}
-        invalid: set[str] = set()
+        mapping: dict[str, int] = {}
 
-        for char in word:
-            low = char.lower()
-            is_low = int(char.islower())
+        for idx, char in enumerate(word):
+            if char.islower():  # last occurrence of lower case letter
+                mapping[char] = idx
+            elif char not in mapping:  # first occurrence of upper case letter
+                mapping[char] = idx
 
-            if low not in mapping:
-                mapping[low] = [0, 0]
+        out: int = 0
 
-            if is_low:
-                if mapping[low][1]:
-                    invalid.add(low)
-                else:
-                    mapping[low][0] = 1
-            else:
-                mapping[low][1] = 1
+        for char, idx in mapping.items():
+            if char.islower() and idx < mapping.get(char.upper(), 0):
+                out += 1
 
-        count = 0
-
-        for k, val in mapping.items():
-            if val[0] == val[1] == 1 and k not in invalid:
-                count += 1
-
-        return count
+        return out
