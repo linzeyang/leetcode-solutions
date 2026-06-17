@@ -1,24 +1,16 @@
-"""2144. Minimum Cost of Buying Candies With Discount"""
+"""
+2144. Minimum Cost of Buying Candies With Discount
+
+https://leetcode.com/problems/minimum-cost-of-buying-candies-with-discount/
+
+Biweekly Contest 70
+"""
 
 from typing import List
 
 
 class Solution:
     def minimumCost(self, cost: List[int]) -> int:
-        if len(cost) < 3:
-            return sum(cost)
+        cost.sort(reverse=True)
 
-        cost = sorted(cost, reverse=True)
-
-        out = idx = 0
-
-        while idx < len(cost):
-            try:
-                out += cost[idx] + cost[idx + 1]
-            except IndexError:
-                out += cost[idx]
-                break
-
-            idx += 3
-
-        return out
+        return sum(candy for idx, candy in enumerate(cost) if idx % 3 != 2)
