@@ -1,16 +1,26 @@
-"""3517. Smallest Palindromic Rearrangement I"""
+"""
+3517. Smallest Palindromic Rearrangement I
+
+https://leetcode.com/problems/smallest-palindromic-rearrangement-i/
+
+Weekly Contest 445
+"""
+
+from collections import Counter
 
 
 class Solution:
     def smallestPalindrome(self, s: str) -> str:
-        length = len(s)
+        length: int = len(s)
 
-        if length & 1:
-            mid = s[length // 2]
-        else:
-            mid = ""
+        if length <= 2:
+            return s
 
-        left = sorted(s[: length // 2])
-        right = left[::-1]
+        mid: str = s[length // 2] if length & 1 else ""
 
-        return "".join(left + [mid] + right)
+        counter: Counter[str] = Counter(s[: length // 2])
+
+        left: str = "".join(char * counter[char] for char in sorted(counter.keys()))
+        right: str = left[::-1]
+
+        return left + mid + right

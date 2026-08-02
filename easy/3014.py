@@ -1,9 +1,15 @@
-"""3014. Minimum Number of Pushes to Type Word I"""
+"""
+3014. Minimum Number of Pushes to Type Word I
+
+https://leetcode.com/problems/minimum-number-of-pushes-to-type-word-i/
+
+Weekly Contest 381
+"""
 
 
 class Solution:
     def minimumPushes(self, word: str) -> int:
-        num = len(word)
+        num: int = len(word)
 
         if num <= 8:
             return num
