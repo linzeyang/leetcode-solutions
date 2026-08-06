@@ -1,4 +1,10 @@
-"""3345. Smallest Divisible Digit Product I"""
+"""
+3345. Smallest Divisible Digit Product I
+
+https://leetcode.com/problems/smallest-divisible-digit-product-i/
+
+Biweekly Contest 143
+"""
 
 from math import prod
 
@@ -8,12 +14,8 @@ class Solution:
         if t == 1:
             return n
 
-        while n:
-            if self._get_prod(n) % t != 0:
-                n += 1
-                continue
-
-            break
+        while (self._get_prod(num=n) % t) != 0:
+            n += 1
 
         return n
 

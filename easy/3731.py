@@ -1,4 +1,10 @@
-"""3731. Find Missing Elements"""
+"""
+3731. Find Missing Elements
+
+https://leetcode.com/problems/find-missing-elements/
+
+Weekly Contest 474
+"""
 
 from typing import List
 
