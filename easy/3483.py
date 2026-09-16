@@ -1,4 +1,10 @@
-"""3483. Unique 3-Digit Even Numbers"""
+"""
+3483. Unique 3-Digit Even Numbers
+
+https://leetcode.com/problems/unique-3-digit-even-numbers/
+
+Biweekly Contest 152
+"""
 
 from itertools import permutations
 from typing import List
