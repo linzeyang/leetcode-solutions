@@ -1,11 +1,14 @@
-"""3498. Reverse Degree of a String"""
+"""
+3498. Reverse Degree of a String
+
+https://leetcode.com/problems/reverse-degree-of-a-string
+
+Biweekly Contest 153
+"""
 
 
 class Solution:
     def reverseDegree(self, s: str) -> int:
-        out = 0
-
-        for idx, char in enumerate(s):
-            out += (26 - ord(char) + ord("a")) * (idx + 1)
-
-        return out
+        return sum(
+            (26 - ord(char) + ord("a")) * (idx + 1) for idx, char in enumerate(s)
+        )
