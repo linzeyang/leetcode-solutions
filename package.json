@@ -2,18 +2,16 @@
   "name": "leetcode-solutions",
   "version": "0.1.0",
   "private": true,
-  "description": "LeetCode solutions with minimal ESLint setup",
+  "description": "LeetCode solutions with linting and formatting setup",
   "license": "MIT",
   "scripts": {
-    "format": "prettier \"**/*.js\" --write",
-    "lint": "eslint \"**/*.js\"",
-    "lint:fix": "eslint \"**/*.js\" --fix"
+    "format": "oxfmt",
+    "format:check": "oxfmt --check",
+    "lint": "oxlint",
+    "lint:fix": "oxlint --fix"
   },
   "devDependencies": {
-    "@eslint/js": "^10.0.1",
-    "eslint": "^10.12.0",
-    "eslint-config-prettier": "^10.1.8",
-    "globals": "^17.13.0",
-    "prettier": "^3.9.9"
+    "oxfmt": "^0.72.0",
+    "oxlint": "^1.87.0"
   }
 }
