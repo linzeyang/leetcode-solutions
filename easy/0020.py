@@ -1,21 +1,21 @@
-"""20. Valid Parentheses"""
+"""
+20. Valid Parentheses
+
+https://leetcode.cn/problems/valid-parentheses/
+"""
 
 
 class Solution:
     def isValid(self, s: str) -> bool:
         stack: list[str] = []
-        MATCHING = {(")", "("), ("}", "{"), ("]", "[")}
+        MATCHING: set[tuple[str, str]] = {(")", "("), ("}", "{"), ("]", "[")}
 
         for char in s:
             if char in "({[":
                 stack.append(char)
+            elif not stack or (char, stack[-1]) not in MATCHING:
+                return False
             else:
-                if not stack:
-                    return False
-
-                if (char, stack[-1]) in MATCHING:
-                    stack.pop()
-                else:
-                    return False
+                stack.pop()
 
         return not stack
