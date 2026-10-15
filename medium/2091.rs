@@ -19,6 +19,8 @@ impl Solution {
         let low: i32 = min_idx.min(max_idx) as i32;
         let high: i32 = min_idx.max(max_idx) as i32;
 
-        (high + 1).min(nums.len() as i32 - low).min(nums.len() as i32 - high + low + 1)
+        (high + 1)
+            .min(nums.len() as i32 - low)
+            .min(nums.len() as i32 - high + low + 1)
     }
 }

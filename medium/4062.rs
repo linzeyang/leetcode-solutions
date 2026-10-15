@@ -4,6 +4,7 @@
 
 impl Solution {
     pub fn can_transform(source: Vec<i32>, target: Vec<i32>) -> bool {
-        source.iter().map(|x| *x as i64).sum::<i64>() == target.iter().map(|x| *x as i64).sum::<i64>()
+        source.iter().map(|x| *x as i64).sum::<i64>()
+            == target.iter().map(|x| *x as i64).sum::<i64>()
     }
 }

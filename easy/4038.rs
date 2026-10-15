@@ -21,6 +21,9 @@ impl Solution {
             }
         }
 
-        mapping.values().filter(|indices| indices.len() == 1).count() as i32
+        mapping
+            .values()
+            .filter(|indices| indices.len() == 1)
+            .count() as i32
     }
 }
