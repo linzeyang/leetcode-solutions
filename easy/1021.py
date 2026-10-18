@@ -1,21 +1,27 @@
-"""1021. Remove Outermost Parentheses"""
+"""
+1021. Remove Outermost Parentheses
+
+https://leetcode.com/problems/remove-outermost-parentheses/
+
+Weekly Contest 131
+"""
 
 
 class Solution:
     def removeOuterParentheses(self, s: str) -> str:
-        out = []
-        temp = []
+        out: list[str] = []
+        counter: int = 0
 
         for char in s:
-            if char == "(" and not temp:
-                temp.append(char)
-            elif char == ")" and len(temp) == 1:
-                temp.pop()
-            elif char == "(":
-                temp.append(char)
-                out.append(char)
+            if char == "(":
+                if counter:
+                    out.append(char)
+
+                counter += 1
             else:
-                temp.pop()
-                out.append(char)
+                if counter != 1:
+                    out.append(char)
+
+                counter -= 1
 
         return "".join(out)

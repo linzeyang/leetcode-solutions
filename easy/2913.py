@@ -1,21 +1,24 @@
-"""2913. Subarrays Distinct Element Sum of Squares I"""
+"""
+2913. Subarrays Distinct Element Sum of Squares I
+
+https://leetcode.com/problems/subarrays-distinct-element-sum-of-squares-i/
+
+Biweekly Contest 116
+"""
 
 from typing import List
 
 
 class Solution:
     def sumCounts(self, nums: List[int]) -> int:
-        count = 0
+        count: int = 0
 
         for idx, num in enumerate(nums):
-            sett = {num}
+            sett: set[int] = {num}
             count += 1
 
-            for _ in range(len(nums) - idx - 1):
-                sett.add(nums[idx + _ + 1])
+            for jdx in range(idx + 1, len(nums)):
+                sett.add(nums[jdx])
                 count += len(sett) ** 2
-
-        if count > 1e9 + 7:
-            return count % (int(1e9) + 7)
 
         return count
