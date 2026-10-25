@@ -22,7 +22,7 @@ repos:
     hooks:
       - id: pyupgrade
   - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.17.1
+    rev: v0.17.2
     hooks:
       - id: ruff-check
         args: ["--fix", "--config=./pyproject.toml"]
@@ -63,5 +63,5 @@ repos:
       - id: sort-package-json
         name: sort package.json
         language: system
-        entry: bunx sort-package-json
+        entry: pnpm dlx sort-package-json
         files: ^package\.json$
