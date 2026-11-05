@@ -11,7 +11,7 @@
     "lint:fix": "oxlint --fix"
   },
   "devDependencies": {
-    "oxfmt": "^0.74.0",
-    "oxlint": "^1.89.0"
+    "oxfmt": "^0.76.0",
+    "oxlint": "^1.91.0"
   }
 }
